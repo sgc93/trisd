@@ -1,0 +1,35 @@
+TRISD :{
+
+    >  assets
+    >  node_modules
+    >  public
+    >  src
+        >  assets
+        >  components
+        >  config
+            >  config.js
+            >  constants.js
+            >  helpers.js
+            >  motion.js
+        >  canvas
+            >  Canvas.jsx
+        >  pages
+            >  CustomizingPage
+            >  DownloadingPage
+            >  FileUploadingPage
+            >  HomePage
+            >  WelComePage
+        >  App.jsx
+        >  index.css
+        >  main.jsx
+    >  .eslintrc.cjs
+    >  .gitignore
+    >  index.html
+    >  package-lock.json
+    >  package.json
+    >  postcss.config.js
+    >  README.md
+    >  tailwind.config.js
+    >  vite.config.js
+
+}
