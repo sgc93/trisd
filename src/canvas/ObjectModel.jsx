@@ -1,4 +1,4 @@
-import { useGLTF, useTexture } from "@react-three/drei";
+import { Decal, useGLTF, useTexture } from "@react-three/drei";
 import { Suspense } from "react";
 import { useSnapshot } from "valtio";
 import proxyState from "../proxyStore/proxy";
@@ -23,7 +23,25 @@ function Model() {
 				material={materials.lambert1}
 				material-roughness={1}
 				dispose={null}
-			/>
+			>
+				{snap.isFullTexture && (
+					<Decal
+						position={[0, 0, 0]}
+						rotation={[0, 0, 0]}
+						scale={1}
+						map={fullTexture}
+					/>
+				)}
+
+				{snap.isLogoTexture && (
+					<Decal
+						position={[0, 0, 0.2]}
+						rotation={[0, 0, 0]}
+						scale={0.18}
+						map={fullTexture}
+					/>
+				)}
+			</mesh>
 		</group>
 	);
 }
