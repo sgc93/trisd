@@ -15,9 +15,9 @@ function Model() {
 	const stringSnap = JSON.stringify(snap);
 
 	// playing with easing
-	// useFrame((state, delta) =>
-	// 	easing.dampC(state.materials.lambert1.color, snap.color, 0.25, delta)
-	// );
+	useFrame((state, delta) =>
+		easing.dampC(materials.shirt_mat.color, snap.color, 0.25, delta)
+	);
 
 	if (error) {
 		console.log(error.message);
@@ -29,7 +29,7 @@ function Model() {
 			<mesh
 				castShadow
 				geometry={nodes.t_shirt.geometry}
-				material={materials.lambert1}
+				material={materials.shirt_mat}
 				material-roughness={1}
 				dispose={null}
 			>
