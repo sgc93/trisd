@@ -29,7 +29,7 @@ export default function CameraReg({ children }) {
 		if (group.current) {
 			easing.dampE(
 				group.current.rotation,
-				[state.pointer.y, state.pointer.x, 0],
+				[state.pointer.y, state.pointer.x * 5, 0],
 				0.25
 			);
 		}
