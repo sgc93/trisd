@@ -1,5 +1,8 @@
 import { Decal, useGLTF, useTexture } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { easing } from "maath";
 import { Suspense } from "react";
+import { MeshStandardMaterial } from "three";
 import { useSnapshot } from "valtio";
 import proxyState from "../proxyStore/proxy";
 
@@ -8,7 +11,13 @@ function Model() {
 	const logoTexture = useTexture(snap.logoDecal);
 	const fullTexture = useTexture(snap.fullDecal);
 	const { nodes, materials, error } = useGLTF("./shirt_model.glb");
-	// const CustomMaterial = new MeshStandardMaterial({ color: "#ffffff" });
+	const CustomMaterial = new MeshStandardMaterial({ color: "orange" });
+	const stringSnap = JSON.stringify(snap);
+
+	// playing with easing
+	// useFrame((state, delta) =>
+	// 	easing.dampC(state.materials.lambert1.color, snap.color, 0.25, delta)
+	// );
 
 	if (error) {
 		console.log(error.message);
@@ -16,7 +25,7 @@ function Model() {
 	}
 
 	return (
-		<group>
+		<group key={stringSnap}>
 			<mesh
 				castShadow
 				geometry={nodes.t_shirt.geometry}
@@ -38,7 +47,7 @@ function Model() {
 						position={[0, 0, 0.2]}
 						rotation={[0, 0, 0]}
 						scale={0.18}
-						map={fullTexture}
+						map={logoTexture}
 					/>
 				)}
 			</mesh>
