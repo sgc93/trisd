@@ -1,7 +1,7 @@
 import { proxy } from "valtio";
 
 const proxyState = proxy({
-	intro: true,
+	intro: false,
 	color: "#EFBD48",
 	isLogoTexture: true,
 	isFullTexture: false,
