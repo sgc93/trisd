@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useSnapshot } from "valtio";
+import CanvasModel from "../../canvas/Canvas";
 import CustomBtn from "../../components/CustomBtn";
 import Tab from "../../components/Tab";
 import { EditorTabs, FilterTabs } from "../../config/constants";
@@ -51,6 +52,7 @@ function CustomizerPage() {
 							/>
 						))}
 					</motion.div>
+					<CanvasModel />
 				</>
 			)}
 		</AnimatePresence>
