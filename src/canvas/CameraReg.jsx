@@ -18,7 +18,7 @@ export default function CameraReg({ children }) {
 			if (isMobile) targetPostion = [0, 0.2, 2.5];
 		} else {
 			if (isMobile) targetPostion = [0, 0, 2.5];
-			else targetPostion = [0, 0, 1];
+			else targetPostion = [0, -0.06, 1];
 		}
 
 		// set model camera position
@@ -29,7 +29,7 @@ export default function CameraReg({ children }) {
 		if (group.current) {
 			easing.dampE(
 				group.current.rotation,
-				[state.pointer.y, state.pointer.x * 5, 0],
+				[state.pointer.y / 4, state.pointer.x / 3, 0],
 				0.25
 			);
 		}
