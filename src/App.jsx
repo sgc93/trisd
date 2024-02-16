@@ -1,10 +1,12 @@
-import "./App.css";
+import CustomizerPage from "./pages/customizer/CustomizerPage";
+import HomePage from "./pages/homepage/HomePage";
 
 function App() {
 	return (
-		<div>
-			<h1 className="head-text">trisD</h1>
-		</div>
+		<main className="app transition-all ease-in">
+			<HomePage />
+			<CustomizerPage />
+		</main>
 	);
 }
 
