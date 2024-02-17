@@ -7,9 +7,9 @@ import CustomBtn from "../components/CustomBtn";
 import FilePicker from "../components/FilePicker";
 import Tab from "../components/Tab";
 import { DecalTypes, EditorTabs, FilterTabs } from "../config/constants";
+import { reader } from "../config/helpers";
 import { fadeAnimation, slideAnimation } from "../config/motion";
 import proxyState from "../proxyStore/proxy";
-import { reader } from "../config/helpers";
 
 function CustomizerPage() {
 	const snap = useSnapshot(proxyState);
@@ -69,7 +69,7 @@ function CustomizerPage() {
 
 	return (
 		<AnimatePresence>
-			{!snap.intro && (
+			{!snap.inHome && (
 				<>
 					<motion.div
 						{...slideAnimation("left")}
@@ -96,7 +96,7 @@ function CustomizerPage() {
 						<CustomBtn
 							type={"filled"}
 							title={"Go Back"}
-							handleClick={() => (proxyState.intro = true)}
+							handleClick={() => (proxyState.inHome = true)}
 							customStyles={"w-fit px-4 font-bold text-sm "}
 						/>
 					</motion.div>
