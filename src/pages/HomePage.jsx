@@ -1,8 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useSnapshot } from "valtio";
-import CustomBtn from "../../components/CustomBtn";
-import { headContainerAnimation, slideAnimation } from "../../config/motion";
-import proxyState from "../../proxyStore/proxy";
+import CustomBtn from "../components/CustomBtn";
+import { headContainerAnimation, slideAnimation } from "../config/motion";
+import proxyState from "../proxyStore/proxy";
 
 function HomePage() {
 	const snap = useSnapshot(proxyState);

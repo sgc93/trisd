@@ -1,15 +1,15 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { useSnapshot } from "valtio";
-import CanvasModel from "../../canvas/Canvas";
-import ColorPicker from "../../components/ColorPicker";
-import CustomBtn from "../../components/CustomBtn";
-import FilePicker from "../../components/FilePicker";
-import Tab from "../../components/Tab";
-import { DecalTypes, EditorTabs, FilterTabs } from "../../config/constants";
-import { fadeAnimation, slideAnimation } from "../../config/motion";
-import proxyState from "../../proxyStore/proxy";
-import { reader } from "../../config/helpers";
+import CanvasModel from "../canvas/Canvas";
+import ColorPicker from "../components/ColorPicker";
+import CustomBtn from "../components/CustomBtn";
+import FilePicker from "../components/FilePicker";
+import Tab from "../components/Tab";
+import { DecalTypes, EditorTabs, FilterTabs } from "../config/constants";
+import { fadeAnimation, slideAnimation } from "../config/motion";
+import proxyState from "../proxyStore/proxy";
+import { reader } from "../config/helpers";
 
 function CustomizerPage() {
 	const snap = useSnapshot(proxyState);

@@ -16,20 +16,20 @@ export default function FilePicker({ file, setFile, readFile }) {
 				<p className="mt-2 text-gray-200 text-xs truncate">
 					{file === "" ? "No File Selected" : file.name}
 				</p>
-				<div className="mt-4 flex flex-wrap gap-3">
-					<CustomBtn
-						type={"outline"}
-						title={"Logo"}
-						handleClick={() => readFile("logo")}
-						customStyles={"text-xs"}
-					/>
-					<CustomBtn
-						type={"filled"}
-						title={"Full"}
-						handleClick={() => readFile("full")}
-						customStyles={"text-xs"}
-					/>
-				</div>
+			</div>
+			<div className="mt-4 flex flex-wrap gap-3">
+				<CustomBtn
+					type={"outline"}
+					title={"Logo"}
+					handleClick={() => readFile("logo")}
+					customStyles={"text-xs"}
+				/>
+				<CustomBtn
+					type={"filled"}
+					title={"Full"}
+					handleClick={() => readFile("full")}
+					customStyles={"text-xs"}
+				/>
 			</div>
 		</div>
 	);
