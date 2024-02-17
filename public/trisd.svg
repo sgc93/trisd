@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 8px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        stroke-width: 7px;
+      }
+
+      .cls-3 {
+        font-family: Inter-Light, Inter;
+        font-size: 92.54px;
+        font-variation-settings: 'wght' 300, 'slnt' 0;
+        font-weight: 300;
+        letter-spacing: .78em;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="m635.61,539.5c.11-9,3.89-150.5,3.89-150.5,0-82.57,59.77-149.5,133.5-149.5s133.5,66.93,133.5,149.5c0-82.57,59.77-149.5,133.5-149.5s133.5,66.93,133.5,149.5c0,0-3.79,141.5-3.89,150.5"/>
+  <path class="cls-2" d="m1049.22,299.5c43.95,0,60.16,46.6,24.1,78.06-36.07,31.46-.69,159.62,96.38,175.93,0,0-135.95-11.65-169.74-145.64-19.81-110.69,49.26-108.36,49.26-108.36Z"/>
+  <path class="cls-2" d="m755.71,299.5c-43.95,0-60.16,46.6-24.1,78.06,36.07,31.46.69,159.62-96.38,175.93,0,0,135.95-11.65,169.74-145.64,19.81-110.69-49.26-108.36-49.26-108.36Z"/>
+  <text class="cls-3" transform="translate(626.81 653.42)"><tspan x="0" y="0">TRISD</tspan></text>
+  <ellipse cx="756.5" cy="341" rx="38" ry="34.5"/>
+  <ellipse cx="1047.5" cy="341" rx="38" ry="34.5"/>
+</svg>
