@@ -1,5 +1,5 @@
-import CustomizerPage from "./pages/customizer/CustomizerPage";
-import HomePage from "./pages/homepage/HomePage";
+import CustomizerPage from "./pages/CustomizerPage";
+import HomePage from "./pages/HomePage";
 
 function App() {
 	return (
