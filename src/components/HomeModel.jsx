@@ -83,7 +83,7 @@ function HomeModel() {
 		<Canvas>
 			<ambientLight />
 			<directionalLight position={[0, 5, 5]} intensity={1} />
-			<OrbitControls zoomSpeed={0.2} />
+			<OrbitControls enableZoom={false} />
 			<Suspense fallback={null}>
 				<Model />
 			</Suspense>
