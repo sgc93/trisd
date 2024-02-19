@@ -69,7 +69,7 @@ function CustomizerPage() {
 
 	return (
 		<AnimatePresence>
-			{!snap.inHome && (
+			{snap.inCustomizer && (
 				<>
 					<motion.div
 						{...slideAnimation("left")}
