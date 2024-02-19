@@ -69,19 +69,93 @@ html {
 	height: 100vh;
 }
 
-/* .btn-container {
+/* feature page */
+.feature_page {
 	display: flex;
 	align-items: center;
+	justify-content: space-around;
+
+	padding: 4rem;
+	height: 100vh;
+	width: 100vw;
+	background-color: #101010;
+}
+
+.card {
+	position: relative;
+	display: flex;
+	gap: 1rem;
+
+	width: 26%;
+	height: 70%;
 
 	background-color: #484848;
-	border-radius: 1.2rem;
-	height: 12rem;
+	border: 1px solid #ffffff;
+	border-radius: 0.7rem;
+	padding: 1.7rem;
+}
+
+.card_part1 {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
 	width: 70%;
 }
 
-.home-btn {
-} */
+.card .logo {
+	width: 3.3rem;
+}
 
+.feature {
+	display: flex;
+	flex-direction: column;
+	gap: 1.4rem;
+}
+
+.feature-title {
+	font-size: 2rem;
+	font-weight: 700;
+
+	color: #fff;
+}
+
+.feature-description {
+	font-size: 1.3rem;
+	font-weight: 500;
+	color: #afaeae;
+}
+
+.feature-btn {
+	position: absolute;
+	bottom: 2rem;
+	left: -2rem;
+	width: 15rem;
+	display: flex;
+}
+
+.feature-btn button {
+	font-size: 1.3rem;
+	font-weight: 500;
+	box-shadow: 0.5rem 0.2rem 0.6rem #afaeae7a;
+
+	transition: 0.6s;
+}
+
+.feature-btn button:hover {
+	box-shadow: 0.5rem 0.2rem 1rem #afaeae7a;
+	transform: translateY(-4px);
+}
+
+.card_part2 {
+	position: absolute;
+	right: -9rem;
+	width: 23rem;
+}
+
+.card_part2 img {
+	width: 100%;
+}
 .download-btn {
 	@apply w-14 h-14 flex justify-center items-center rounded-full glassmorphism cursor-pointer outline-none;
 }
