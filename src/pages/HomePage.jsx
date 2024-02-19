@@ -45,7 +45,10 @@ function HomePage() {
 								<CustomBtn
 									type="filled"
 									title="what to do with TRISD?"
-									handleClick={() => (proxyState.inHome = false)}
+									handleClick={() => {
+										proxyState.inHome = false;
+										proxyState.inFeaturePage = true;
+									}}
 									customStyles="home-btn px-4 py-2.5 font-bold text-sm"
 								/>
 							</motion.div>
