@@ -54,13 +54,6 @@ function HomePage() {
 							</motion.div>
 						</div>
 						<motion.div className="home-content_model ">
-							{/* <img
-								{...slideAnimation("right")}
-								src="./square.png"
-								alt="model"
-								className="model"
-							/> */}
-
 							<HomeModel />
 						</motion.div>
 					</motion.div>
