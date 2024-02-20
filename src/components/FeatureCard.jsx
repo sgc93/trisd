@@ -1,19 +1,20 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import CustomBtn from "../components/CustomBtn";
 
-function FeatureCard({ title, description, imgUrl, btnTxt }) {
+function FeatureCard({ title, description, imgUrl, btnTxt, handleOnClick }) {
 	const x = useMotionValue(0);
 	const y = useMotionValue(0);
-	const rotateX = useTransform(y, [-100, 100], [30, -30]);
-	const rotateY = useTransform(x, [-100, 100], [-30, 30]);
+	const rotateX = useTransform(x, [-100, 100], [30, -30]);
+	const rotateY = useTransform(y, [-100, 100], [-30, 30]);
 
 	return (
 		<motion.div
 			className="card"
 			style={{ x, y, rotateX, rotateY, z: 100 }}
 			drag
-			dragElastic={0.5}
-			dragConstraints={{ left: 90, right: 0, top: 0, bottom: 0 }}
+			dragElastic={0.18}
+			// dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+			// whileTap={{ cursor: "grabbing" }}
 		>
 			<div className="card_part1">
 				<div className="logo">
@@ -24,11 +25,15 @@ function FeatureCard({ title, description, imgUrl, btnTxt }) {
 					<div className="feature-description">{description}</div>
 				</div>
 				<div className="feature-btn">
-					<CustomBtn title={btnTxt} type={"filled"} />
+					<CustomBtn
+						title={btnTxt}
+						type={"filled"}
+						handleClick={handleOnClick}
+					/>
 				</div>
 			</div>
 			<div className="card_part2">
-				<img src={imgUrl} alt="sample model" />
+				<img src={imgUrl} alt="sample model" draggable={false} />
 			</div>
 		</motion.div>
 	);
