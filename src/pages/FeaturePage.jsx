@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { useSnapshot } from "valtio";
 import CustomBtn from "../components/CustomBtn";
 import FeatureCard from "../components/FeatureCard";
@@ -38,9 +39,25 @@ const featureData = [
 
 function FeaturePage() {
 	const snap = useSnapshot(proxyState);
+	const xyz = useRef();
+	const featurePage = useRef();
+
+	useEffect(() => {
+		if (featurePage.current !== undefined) {
+			featurePage.current.addEventListener("mousemove", (e) => {
+				const x = e.clientX;
+				const y = e.clientY;
+				if (xyz.current !== undefined) {
+					xyz.current.style.top = `${y}px`;
+					xyz.current.style.left = `${x}px`;
+				}
+			});
+		}
+	});
+
 	return (
 		snap.inFeaturePage && (
-			<section className="feature_page">
+			<section ref={featurePage} className="feature_page">
 				<div className="feature-header">
 					<img src="./logo.png" alt="trisD" />
 					<CustomBtn
@@ -66,6 +83,9 @@ function FeaturePage() {
 							/>
 						);
 					})}
+				</div>
+				<div ref={xyz} className="xyz">
+					try to drag things
 				</div>
 			</section>
 		)
