@@ -16,12 +16,24 @@ html {
 }
 
 .app {
+	position: relative;
 	@apply relative w-full h-screen overflow-hidden;
+}
+
+.cursor {
+	position: absolute;
+	z-index: 999;
+	background-color: #a767ec65;
+	border-radius: 50%;
+
+	width: 1.2rem;
+	height: 1.2rem;
 }
 
 .home {
 	background-color: #101010;
 	color: #fff;
+
 	display: flex;
 	flex-direction: column;
 	width: 100vw;
@@ -31,14 +43,9 @@ html {
 	/* @apply w-fit xl:h-full flex xl:justify-between justify-start items-start flex-col xl:py-8 xl:px-36 sm:p-8 p-6 max-xl:gap-7 absolute z-10; */
 }
 
-.header {
-	backdrop-filter: blur(5);
-}
-
 .home-content {
 	position: relative;
 	gap: 2rem;
-	/* @apply flex-1 xl:justify-center justify-start flex flex-row gap-10 px-20; */
 }
 
 .home-content_textual {
@@ -62,15 +69,14 @@ html {
 	top: 50%;
 	left: 20%;
 
-	transform: translateY(-50%);
-
-	z-index: 1;
+	transform: translateY(-26%);
 	width: 100vw;
 	height: 100vh;
 }
 
 /* feature page */
 .feature_page {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	gap: 4rem;
@@ -79,6 +85,21 @@ html {
 	height: 100vh;
 	width: 100vw;
 	background-color: #101010;
+}
+
+.xyz {
+	position: absolute;
+
+	width: fit-content;
+	padding: 0.2rem 0.4rem;
+	border: 1px solid white;
+	border-radius: 1.2rem;
+
+	color: white;
+	font-size: 0.5rem;
+	background-color: #48484870;
+
+	backdrop-filter: blur(4px);
 }
 
 .feature-header {
