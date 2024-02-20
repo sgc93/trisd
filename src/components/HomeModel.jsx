@@ -51,8 +51,8 @@ function Model() {
 					object={nodes.j_kdan}
 					onClick={() => {
 						setCurrentMesh("kdan_material");
-						setIsAnimating(true);
-						setAnimatedMesh(kdanRef);
+						// setIsAnimating(true);
+						// setAnimatedMesh(kdanRef);
 					}}
 				/>
 				<primitive
@@ -60,8 +60,8 @@ function Model() {
 					object={nodes.jebena}
 					onClick={() => {
 						setCurrentMesh("jebena_material");
-						setIsAnimating(true);
-						setAnimatedMesh(jebenaRef);
+						// setIsAnimating(true);
+						// setAnimatedMesh(jebenaRef);
 					}}
 				/>
 				<primitive
@@ -69,8 +69,8 @@ function Model() {
 					object={nodes.j_chair}
 					onClick={() => {
 						setCurrentMesh("chair_material");
-						setIsAnimating(true);
-						setAnimatedMesh(chairRef);
+						// setIsAnimating(true);
+						// setAnimatedMesh(chairRef);
 					}}
 				/>
 			</group>
