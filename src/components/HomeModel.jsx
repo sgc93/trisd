@@ -4,7 +4,7 @@ import { easing } from "maath";
 import { Suspense, useEffect, useRef, useState } from "react";
 
 function Model() {
-	const { materials, nodes } = useGLTF("/]ebena.glb");
+	const { materials, nodes } = useGLTF("/jebena.glb");
 	const [currentMesh, setCurrentMesh] = useState("");
 	const [homeColor, setHomeColor] = useState("");
 	const [isAnimating, setIsAnimating] = useState(false);
