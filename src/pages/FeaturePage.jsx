@@ -1,4 +1,6 @@
-import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { MdDragIndicator } from "react-icons/md";
 import { useSnapshot } from "valtio";
 import CustomBtn from "../components/CustomBtn";
 import FeatureCard from "../components/FeatureCard";
@@ -41,34 +43,114 @@ function FeaturePage() {
 	const snap = useSnapshot(proxyState);
 	const xyz = useRef();
 	const featurePage = useRef();
+	const [showDragIndicator, setShowDragIndicator] = useState(false);
+
+	function handleHoverStart() {
+		setShowDragIndicator(true);
+	}
+
+	function handleHoverEnd() {
+		setShowDragIndicator(false);
+	}
+	// const [constraints, setConstraints] = useState({
+	// 	right: 500,
+	// 	left: 0,
+	// 	top: 78,
+	// 	bottom: 0,
+	// });
+
+	// useEffect(() => {
+	// 	function updateOffsets() {
+	// 		if (featurePage.current) {
+	// 			setConstraints((constraints) => {
+	// 				return {
+	// 					left: featurePage.current.offsetWidth,
+	// 					right: 0,
+	// 					top: featurePage.current.offsetHeight,
+	// 					bottom: 0,
+	// 				};
+	// 			});
+	// 			console.log(
+	// 				featurePage.current,
+	// 				featurePage.current.offsetWidth,
+	// 				featurePage.current.offsetHeight
+	// 			);
+	// 		}
+	// 	}
+
+	// 	updateOffsets();
+
+	// 	// Update constraints on content or style changes
+	// 	const observer = new MutationObserver(updateOffsets);
+	// 	observer.observe(featurePage.current, {
+	// 		attributes: true,
+	// 		childList: true,
+	// 		subtree: true,
+	// 	});
+
+	// 	// Cleanup
+	// 	return () => observer.disconnect();
+	// }, []);
 
 	useEffect(() => {
-		if (featurePage.current !== undefined) {
+		if (featurePage.current) {
 			featurePage.current.addEventListener("mousemove", (e) => {
 				const x = e.clientX;
 				const y = e.clientY;
-				if (xyz.current !== undefined) {
-					xyz.current.style.top = `${y}px`;
-					xyz.current.style.left = `${x}px`;
+				if (xyz.current !== null) {
+					xyz.current.style.top = `${y + 15}px`;
+					xyz.current.style.left = `${x + 15}px`;
 				}
 			});
 		}
 	});
 
+	function handleDragEnd(event, info) {
+		// calculate the dragged distance : using
+		const dragDistance = Math.sqrt(
+			Math.pow(info.offset.x, 2) + Math.pow(info.offset.y, 2)
+		);
+		const clickThreshold = 5; // Adjust threshold as needed
+		// Check if drag distance is below a threshold
+		if (dragDistance > clickThreshold) {
+			console.log("dragging");
+		} else {
+			proxyState.inFeaturePage = false;
+			proxyState.inHome = true;
+			console.log("clicking");
+		}
+	}
+
 	return (
 		snap.inFeaturePage && (
 			<section ref={featurePage} className="feature_page">
 				<div className="feature-header">
-					<img src="./logo.png" alt="trisD" />
-					<CustomBtn
-						type={"filled"}
-						title={"Go Back"}
-						handleClick={() => {
-							proxyState.inFeaturePage = false;
-							proxyState.inHome = true;
-						}}
-						customStyles={"w-fit px-4 font-bold text-sm "}
-					/>
+					<motion.div drag dragElastic={1.18}>
+						<img src="./logo.png" alt="trisD" draggable={false} />
+					</motion.div>
+					<motion.div
+						drag
+						className="btn_container"
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<CustomBtn
+							type={"filled"}
+							title={"Go Back"}
+							handleClick={() => {
+								proxyState.inFeaturePage = false;
+								proxyState.inHome = true;
+							}}
+							customStyles={"w-fit px-4 font-bold text-sm "}
+							draggable={false}
+						/>
+						<MdDragIndicator
+							className="drag_indicator"
+							color="white"
+							size={23}
+							fillOpacity={showDragIndicator ? 0.4 : 0}
+						/>
+					</motion.div>
 				</div>
 				<div className="feature-cards">
 					{featureData.map((data) => {
