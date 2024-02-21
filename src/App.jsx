@@ -7,6 +7,8 @@ import FeaturePage from "./pages/FeaturePage";
 import HomePage from "./pages/HomePage";
 
 function App() {
+	const [glbData, setGlbData] = useState("./jebena.glb");
+
 	const [cursorClass, setCursorClass] = useState("def_cursor");
 	function changeCursorClass(newClass) {
 		setCursorClass(newClass);
@@ -17,8 +19,8 @@ function App() {
 			<HomePage />
 			<CustomizerPage />
 			<FeaturePage changeCursorClass={changeCursorClass} />
-			<DisplayPage />
-			<DisplayCanvas />
+			<DisplayPage setGlbData={setGlbData} />
+			<DisplayCanvas glbData={glbData} />
 		</main>
 	);
 }
