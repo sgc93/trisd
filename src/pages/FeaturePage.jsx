@@ -39,7 +39,7 @@ const featureData = [
 	},
 ];
 
-function FeaturePage() {
+function FeaturePage({ changeCursorClass }) {
 	const snap = useSnapshot(proxyState);
 	const xyz = useRef();
 	const featurePage = useRef();
@@ -125,7 +125,12 @@ function FeaturePage() {
 		snap.inFeaturePage && (
 			<section ref={featurePage} className="feature_page">
 				<div className="feature-header">
-					<motion.div drag dragElastic={1.18}>
+					<motion.div
+						drag
+						dragElastic={1.18}
+						onHoverStart={() => changeCursorClass("logo_cursor")}
+						onHoverEnd={() => changeCursorClass("def_cursor")}
+					>
 						<img src="./logo.png" alt="trisD" draggable={false} />
 					</motion.div>
 					<motion.div
