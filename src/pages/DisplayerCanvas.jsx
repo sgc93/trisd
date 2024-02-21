@@ -2,6 +2,7 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { motion } from "framer-motion";
 import { Suspense, useState } from "react";
+import { FaToggleOff, FaToggleOn } from "react-icons/fa6";
 import { MdDragIndicator } from "react-icons/md";
 import { useSnapshot } from "valtio";
 import Loading from "../components/Loading";
@@ -38,7 +39,22 @@ function ModelController() {
 			onHoverStart={() => setShowDragIndicator(true)}
 			onHoverEnd={() => setShowDragIndicator(false)}
 		>
-			<div className="model-controller">Controller</div>
+			<div className="model-controller">
+				<div className="rotation-controller controller">
+					<FaToggleOff className="toggle_icon" />
+					<span>Enable Rotation</span>
+				</div>
+
+				<div className="zoom-controller controller">
+					<FaToggleOff className="toggle_icon" />
+					<span>Enable zoom in/out</span>
+				</div>
+
+				<div className="orbit-controller controller">
+					<FaToggleOn className="toggle_icon on" />
+					<span>Disable movement with cursor</span>
+				</div>
+			</div>
 			<MdDragIndicator
 				className="drag_indicator"
 				color="white"
