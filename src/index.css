@@ -355,6 +355,7 @@ button {
 
 .display-logo {
 	position: absolute;
+	z-index: 998;
 
 	margin: 4rem;
 }
@@ -366,6 +367,8 @@ button {
 
 	display: flex;
 	align-items: center;
+
+	z-index: 999;
 }
 
 .model-controller {
@@ -373,6 +376,24 @@ button {
 	border: 1px solid white;
 	border-radius: 1.2rem;
 	padding: 1rem;
+
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.controller {
+	display: flex;
+	gap: 1rem;
+}
+
+.toggle_icon {
+	font-size: 1.3rem;
+	color: #ffffffa2;
+}
+
+.toggle_icon.on {
+	color: #fff;
 }
 
 .download-btn {
