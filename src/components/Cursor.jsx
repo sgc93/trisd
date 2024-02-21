@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 
-function Cursor() {
+function Cursor({ cursorClass }) {
 	const cursor = useRef();
+	console.log(cursorClass);
 
 	useEffect(() => {
 		window.addEventListener("mousemove", (e) => {
@@ -14,7 +15,7 @@ function Cursor() {
 			}
 		});
 	});
-	return <div ref={cursor} className="cursor"></div>;
+	return <div ref={cursor} className={`cursor ${cursorClass}`}></div>;
 }
 
 export default Cursor;
