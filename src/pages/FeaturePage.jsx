@@ -52,45 +52,6 @@ function FeaturePage({ changeCursorClass }) {
 	function handleHoverEnd() {
 		setShowDragIndicator(false);
 	}
-	// const [constraints, setConstraints] = useState({
-	// 	right: 500,
-	// 	left: 0,
-	// 	top: 78,
-	// 	bottom: 0,
-	// });
-
-	// useEffect(() => {
-	// 	function updateOffsets() {
-	// 		if (featurePage.current) {
-	// 			setConstraints((constraints) => {
-	// 				return {
-	// 					left: featurePage.current.offsetWidth,
-	// 					right: 0,
-	// 					top: featurePage.current.offsetHeight,
-	// 					bottom: 0,
-	// 				};
-	// 			});
-	// 			console.log(
-	// 				featurePage.current,
-	// 				featurePage.current.offsetWidth,
-	// 				featurePage.current.offsetHeight
-	// 			);
-	// 		}
-	// 	}
-
-	// 	updateOffsets();
-
-	// 	// Update constraints on content or style changes
-	// 	const observer = new MutationObserver(updateOffsets);
-	// 	observer.observe(featurePage.current, {
-	// 		attributes: true,
-	// 		childList: true,
-	// 		subtree: true,
-	// 	});
-
-	// 	// Cleanup
-	// 	return () => observer.disconnect();
-	// }, []);
 
 	useEffect(() => {
 		if (featurePage.current) {
@@ -104,22 +65,6 @@ function FeaturePage({ changeCursorClass }) {
 			});
 		}
 	});
-
-	function handleDragEnd(event, info) {
-		// calculate the dragged distance : using
-		const dragDistance = Math.sqrt(
-			Math.pow(info.offset.x, 2) + Math.pow(info.offset.y, 2)
-		);
-		const clickThreshold = 5; // Adjust threshold as needed
-		// Check if drag distance is below a threshold
-		if (dragDistance > clickThreshold) {
-			console.log("dragging");
-		} else {
-			proxyState.inFeaturePage = false;
-			proxyState.inHome = true;
-			console.log("clicking");
-		}
-	}
 
 	return (
 		snap.inFeaturePage && (
