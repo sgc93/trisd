@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Cursor from "./components/Cursor";
 import CustomizerPage from "./pages/CustomizerPage";
+import DisplayPage from "./pages/DisplayerPage";
 import FeaturePage from "./pages/FeaturePage";
 import HomePage from "./pages/HomePage";
 
@@ -15,6 +16,7 @@ function App() {
 			<HomePage />
 			<CustomizerPage />
 			<FeaturePage changeCursorClass={changeCursorClass} />
+			<DisplayPage />
 		</main>
 	);
 }
