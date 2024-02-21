@@ -3,26 +3,28 @@ import { useSnapshot } from "valtio";
 import CustomBtn from "../components/CustomBtn";
 import proxyState from "../proxyStore/proxy";
 
-function DisplayPage() {
+function DisplayPage({ setGlbData }) {
 	const snap = useSnapshot(proxyState);
-	const [glbFile, setglbFile] = useState();
 	const [fileName, setFileName] = useState("");
-	const [glbData, setGlbData] = useState();
+	// useEffect(() => {
+	// 	return () => {
+	// 		if (glbData) {
+	// 			URL.revokeObjectURL(glbData);
+	// 		}
+	// 	};
+	// }, []);
 
 	async function handleFileUpload(event) {
 		const file = event.target.files[0];
 		if (!file) return;
 
-		// if (file.type !== "model/gltf-binary") {
-		// 	console.log("File type error.");
-		// }
-
 		setFileName(file.name);
 
 		try {
 			const glb_data = await readFile(file);
-			setGlbData((data) => glb_data);
-			console.log(glb_data);
+			const blob = new Blob([glb_data], { type: "model/gltf-binary" });
+			const url = URL.createObjectURL(blob);
+			setGlbData(url);
 		} catch (error) {
 			console.log(error.message);
 		}
@@ -77,7 +79,14 @@ function DisplayPage() {
 						</div>
 						<div className="display-section_btns">
 							<CustomBtn type={"outline"} title={"Change File"} />
-							<CustomBtn type={"filled"} title={"Display"} />
+							<CustomBtn
+								type={"filled"}
+								title={"Display"}
+								handleClick={() => {
+									proxyState.inDisplayer = false;
+									proxyState.inCanvas = true;
+								}}
+							/>
 						</div>
 					</div>
 				</div>
