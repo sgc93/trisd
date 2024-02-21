@@ -1,9 +1,49 @@
+import { useState } from "react";
 import { useSnapshot } from "valtio";
 import CustomBtn from "../components/CustomBtn";
 import proxyState from "../proxyStore/proxy";
 
 function DisplayPage() {
 	const snap = useSnapshot(proxyState);
+	const [glbFile, setglbFile] = useState();
+	const [fileName, setFileName] = useState("");
+	const [glbData, setGlbData] = useState();
+
+	async function handleFileUpload(event) {
+		const file = event.target.files[0];
+		if (!file) return;
+
+		// if (file.type !== "model/gltf-binary") {
+		// 	console.log("File type error.");
+		// }
+
+		setFileName(file.name);
+
+		try {
+			const glb_data = await readFile(file);
+			setGlbData((data) => glb_data);
+			console.log(glb_data);
+		} catch (error) {
+			console.log(error.message);
+		}
+	}
+
+	function readFile(file) {
+		return new Promise((resolve, reject) => {
+			const reader = new FileReader(); // create file loader
+
+			reader.onload = (event) => {
+				resolve(event.target.result); // read result
+			};
+
+			reader.onerror = (error) => {
+				reject(error);
+			};
+
+			reader.readAsArrayBuffer(file);
+		});
+	}
+
 	return (
 		snap.inDisplayer && (
 			<section className="display_page">
@@ -24,13 +64,17 @@ function DisplayPage() {
 						<div className="display-section_file">
 							<input
 								type="file"
-								accept="image/*"
+								accept=".glb"
 								id="glb-loader"
-								onChange={(e) => {}}
+								onChange={handleFileUpload}
 							/>
-							<label htmlFor="glb-loader">upload .glb file</label>
+							<label htmlFor="glb-loader">
+								{fileName ? "Change File" : "upload .glb file"}
+							</label>
 						</div>
-						<div className="display-section_fileName">No file is selected</div>
+						<div className="display-section_fileName">
+							{fileName ? fileName : "No file is selected"}
+						</div>
 						<div className="display-section_btns">
 							<CustomBtn type={"outline"} title={"Change File"} />
 							<CustomBtn type={"filled"} title={"Display"} />
