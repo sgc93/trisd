@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSnapshot } from "valtio";
 import CustomBtn from "../components/CustomBtn";
+import Logo from "../components/Logo";
 import proxyState from "../proxyStore/proxy";
 
 function DisplayPage({ setGlbData }) {
@@ -49,9 +50,7 @@ function DisplayPage({ setGlbData }) {
 	return (
 		snap.inDisplayer && (
 			<section className="display_page">
-				<div className="feature-header">
-					<img src="./logo.png" alt="trisD" />
-				</div>
+				<Logo />
 				<div className="display-section">
 					<div className="display-section1 section">
 						<div className="display-section1_text">
