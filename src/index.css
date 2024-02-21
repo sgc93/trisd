@@ -9,6 +9,14 @@ html {
 	font-family: "Inter", sans-serif;
 }
 
+body {
+	cursor: none;
+}
+
+button {
+	cursor: none;
+}
+
 @supports (font-variation-settings: normal) {
 	html {
 		font-family: "Inter var", sans-serif;
@@ -100,6 +108,16 @@ html {
 	background-color: #48484870;
 
 	backdrop-filter: blur(4px);
+	transition: all 0.3s;
+}
+
+.btn_container {
+	display: flex;
+	align-items: center;
+}
+
+.drag_indicator {
+	transition: 0.3s;
 }
 
 .feature-header {
@@ -140,8 +158,6 @@ html {
 	border: 1px solid #ffffff;
 	border-radius: 0.7rem;
 	padding: 1.7rem;
-
-	cursor: grabbing;
 }
 
 .card:first-child {
