@@ -31,11 +31,26 @@ button {
 .cursor {
 	position: absolute;
 	z-index: 999;
-	background-color: #a767ec65;
 	border-radius: 50%;
 
 	width: 1.2rem;
 	height: 1.2rem;
+}
+
+.def_cursor {
+	background-color: #a767ec65;
+	background-color: rgba(249, 187, 0, 0.573);
+}
+
+.logo_cursor {
+	width: 3rem;
+	height: 3rem;
+}
+
+.btn_cursor {
+	background-color: rgba(255, 255, 255, 0.573);
+	width: 3rem;
+	height: 3rem;
 }
 
 .home {
