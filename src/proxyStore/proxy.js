@@ -2,10 +2,11 @@ import { proxy } from "valtio";
 
 const proxyState = proxy({
 	inHome: false,
-	inDisplayer: false,
+	inDisplayer: true,
 	inCustomizer: false,
-	inFeaturePage: true,
+	inFeaturePage: false,
 	inMockup: false,
+	inCanvas: false,
 	color: "#EFBD48",
 	isLogoTexture: true,
 	isFullTexture: false,
