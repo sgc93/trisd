@@ -326,7 +326,8 @@ button {
 	font-size: 1.2rem;
 }
 
-.display-section_btns {
+.display-section_btns,
+.controller-btns {
 	display: flex;
 	align-items: center;
 	gap: 2rem;
@@ -394,6 +395,43 @@ button {
 
 .toggle_icon.on {
 	color: #fff;
+}
+
+/* screenshot displayer modal window */
+/* .screenshot-modal_container  */
+.screenshot-modal {
+	position: absolute;
+	left: 10vw;
+	top: 10vh;
+	width: 80vw;
+	height: 80vh;
+
+	background: #484848;
+	border: 1px solid #fff;
+	border-radius: 1.2rem;
+
+	padding: 1rem;
+
+	z-index: 999;
+
+	backdrop-filter: blur(1rem);
+}
+
+.screenshot-modal h4 {
+	opacity: 0.5;
+}
+
+.screenshot-modal .img-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 80%;
+	height: 80%;
+}
+
+.screenshot-modal .img-container img {
+	max-width: 100%;
+	max-height: 100%;
 }
 
 .download-btn {
