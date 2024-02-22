@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSnapshot } from "valtio";
 import CustomBtn from "../components/CustomBtn";
 import Logo from "../components/Logo";
@@ -7,14 +7,37 @@ import proxyState from "../proxyStore/proxy";
 function DisplayPage({ setGlbData }) {
 	const snap = useSnapshot(proxyState);
 	const [fileName, setFileName] = useState("");
+	const [isReady, setIsReady] = useState(false);
 	const [status, setStatus] = useState("");
+	const [isFalsy, setIsFalsy] = useState(false);
+	const animate = useRef();
+
+	useEffect(() => {
+		if (fileName) {
+			const fileExtension = fileName.split(".").pop().toLowerCase();
+			const isGLBFile = fileExtension === "glb";
+			if (isGLBFile) {
+				setIsReady(true);
+			} else {
+				setStatus("You have dropped non glb file, try again!");
+			}
+		}
+	}, [fileName]);
+
+	useEffect(() => {
+		if (animate.current && isFalsy) {
+			animate.current.classList.add("animate");
+		}
+	}, [isFalsy]);
 
 	async function handleFileUpload(event) {
+		setIsReady(false);
+		animate.current.classList.remove("animate");
+		setIsFalsy(false);
 		const file = event.target.files[0];
 		if (!file) return;
 
 		setFileName(file.name);
-
 		try {
 			const glb_data = await readFile(file);
 			const blob = new Blob([glb_data], { type: "model/gltf-binary" });
@@ -58,9 +81,12 @@ function DisplayPage({ setGlbData }) {
 
 	async function handleFileDrop(e) {
 		e.preventDefault();
+		setIsReady(false);
+		setIsFalsy(false);
+		animate.current.classList.remove("animate");
+		setStatus("");
 
 		try {
-			setStatus("Dropped Successfully!");
 			const dropedfile = e.dataTransfer.files[0];
 			setFileName(dropedfile.name);
 			const glb_data = await readFile(dropedfile);
@@ -69,6 +95,16 @@ function DisplayPage({ setGlbData }) {
 			setGlbData(url);
 		} catch (error) {
 			console.log(error.message);
+		}
+	}
+
+	function handleDisplaying() {
+		// check file validity
+		if (isReady) {
+			proxyState.inDisplayer = false;
+			proxyState.inCanvas = true;
+		} else {
+			setIsFalsy(true);
 		}
 	}
 
@@ -92,7 +128,7 @@ function DisplayPage({ setGlbData }) {
 							<h4>
 								<span>drag and drop your .glb file here</span>
 								<span>{status ? status : ""}</span>
-								<span>{fileName ? fileName : ""}</span>
+								<span>{isReady && fileName ? fileName : ""}</span>
 							</h4>
 						</div>
 					</div>
@@ -108,18 +144,19 @@ function DisplayPage({ setGlbData }) {
 								{fileName ? "Change File" : "upload .glb file"}
 							</label>
 						</div>
-						<div className="display-section_fileName">
-							{fileName ? fileName : "No file is selected"}
+						<div className="display-section_fileName" ref={animate}>
+							{fileName
+								? isReady
+									? fileName
+									: `${fileName} in not a glb file,try again!`
+								: "No file is selected"}
 						</div>
 						<div className="display-section_btns">
 							<CustomBtn type={"outline"} title={"Change File"} />
 							<CustomBtn
 								type={"filled"}
 								title={"Display"}
-								handleClick={() => {
-									proxyState.inDisplayer = false;
-									proxyState.inCanvas = true;
-								}}
+								handleClick={handleDisplaying}
 							/>
 						</div>
 					</div>
