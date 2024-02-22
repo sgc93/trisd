@@ -10,7 +10,7 @@ const featureData = [
 	{
 		title: "3D MODEL DISPLAYER",
 		description: "display your .glb format 3D models",
-		imgUrl: "./model.png",
+		imgUrl: "./cube.png",
 		btnTxt: "Display 3D",
 		onclick: () => {
 			proxyState.inFeaturePage = false;
@@ -20,7 +20,7 @@ const featureData = [
 	{
 		title: "3D MODEL Customizer",
 		description: "customize your 3d models and see the rendered final result.",
-		imgUrl: "./model.png",
+		imgUrl: "./sphere.png",
 		btnTxt: "Start Customizing",
 		onclick: () => {
 			proxyState.inFeaturePage = false;
@@ -30,7 +30,7 @@ const featureData = [
 	{
 		title: "DO MOCKING UP ON 3D MODELS",
 		description: "do your mockup on template and have the screenshot.",
-		imgUrl: "./model.png",
+		imgUrl: "./star.png",
 		btnTxt: "Try Mocking Up",
 		onclick: () => {
 			proxyState.inFeaturePage = false;
