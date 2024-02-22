@@ -7,6 +7,7 @@ import proxyState from "../proxyStore/proxy";
 function DisplayPage({ setGlbData }) {
 	const snap = useSnapshot(proxyState);
 	const [fileName, setFileName] = useState("");
+	const [status, setStatus] = useState("");
 
 	async function handleFileUpload(event) {
 		const file = event.target.files[0];
@@ -40,6 +41,11 @@ function DisplayPage({ setGlbData }) {
 		});
 	}
 
+	function handleDragEnter(e) {
+		e.preventDefault();
+		setStatus("Drag here");
+	}
+
 	return (
 		snap.inDisplayer && (
 			<section className="display_page">
@@ -50,8 +56,15 @@ function DisplayPage({ setGlbData }) {
 							<h1>WELCOME</h1>
 							<h4>Display Your 3D Model and See Though</h4>
 						</div>
-						<div className="display-section_dropZone">
-							<h4>drag and drop your .glb file here</h4>
+						<div
+							className="display-section_dropZone"
+							onDragEnter={handleDragEnter}
+						>
+							<h4>
+								<span>drag and drop your .glb file here</span>
+								<span>{status ? status : ""}</span>
+								<span>{fileName ? fileName : ""}</span>
+							</h4>
 						</div>
 					</div>
 					<div className="display-section2 section">
