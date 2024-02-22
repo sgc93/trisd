@@ -1,6 +1,6 @@
-function Logo({ newClass }) {
+function Logo({ newClass, handleClick }) {
 	return (
-		<div className={`feature-header ${newClass}`}>
+		<div className={`feature-header ${newClass}`} onClick={handleClick}>
 			<img src="./logo.png" alt="trisD" />
 		</div>
 	);
