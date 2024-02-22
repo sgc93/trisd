@@ -33,7 +33,7 @@ function Model({ glbData, controller }) {
 	return (
 		<group ref={model}>
 			<Center>
-				<primitive scale={[1.4, 1.4, 1.4]} object={scene} />
+				<primitive scale={[1.5, 1.5, 1.5]} object={scene} />
 			</Center>
 		</group>
 	);
@@ -182,7 +182,7 @@ function DisplayCanvas({ glbData }) {
 					<div className="display-canvas">
 						<Canvas ref={screenshot}>
 							<ambientLight intensity={1.5} />
-							<spotLight position={[10, 15, 10]} penumbra={1} castShadow />
+							<spotLight position={[10, 10, 10]} castShadow />
 							<OrbitControls enableZoom={zoom} enableRotate={rotate} />
 							<Model glbData={glbData} controller={controller} />
 						</Canvas>
