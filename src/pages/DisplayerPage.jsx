@@ -43,7 +43,33 @@ function DisplayPage({ setGlbData }) {
 
 	function handleDragEnter(e) {
 		e.preventDefault();
-		setStatus("Drag here");
+		setStatus("Drag file here");
+	}
+
+	function handleDragLeave(e) {
+		e.preventDefault();
+		setStatus("");
+	}
+
+	function handleDragOver(e) {
+		e.preventDefault();
+		setStatus("Drop here");
+	}
+
+	async function handleFileDrop(e) {
+		e.preventDefault();
+
+		try {
+			setStatus("Dropped Successfully!");
+			const dropedfile = e.dataTransfer.files[0];
+			setFileName(dropedfile.name);
+			const glb_data = await readFile(dropedfile);
+			const blob = new Blob([glb_data], { type: "model/gltf-binary" });
+			const url = URL.createObjectURL(blob);
+			setGlbData(url);
+		} catch (error) {
+			console.log(error.message);
+		}
 	}
 
 	return (
@@ -59,6 +85,9 @@ function DisplayPage({ setGlbData }) {
 						<div
 							className="display-section_dropZone"
 							onDragEnter={handleDragEnter}
+							onDragLeave={handleDragLeave}
+							onDragOver={handleDragOver}
+							onDrop={handleFileDrop}
 						>
 							<h4>
 								<span>drag and drop your .glb file here</span>
