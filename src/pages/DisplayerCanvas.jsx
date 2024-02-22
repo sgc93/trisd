@@ -5,8 +5,10 @@ import { easing } from "maath";
 import { Suspense, useRef, useState } from "react";
 import { BiScreenshot } from "react-icons/bi";
 import { FaToggleOff, FaToggleOn } from "react-icons/fa6";
+import { IoIosColorPalette } from "react-icons/io";
 import { MdDragIndicator } from "react-icons/md";
 import { useSnapshot } from "valtio";
+import ColorPicker from "../components/ColorPicker";
 import CustomBtn from "../components/CustomBtn";
 import Loading from "../components/Loading";
 import Logo from "../components/Logo";
@@ -45,6 +47,7 @@ function ModelController({
 	screenshot,
 	setDisplayModal,
 	setScreenshotImg,
+	setIsColorPicker,
 }) {
 	const [showDragIndicator, setShowDragIndicator] = useState(false);
 	const { zoom, rotate, movement } = controller;
@@ -62,6 +65,10 @@ function ModelController({
 		// link.download = "trisD-screenshot.png";
 		// document.body.appendChild(link);
 		// link.click();
+	}
+
+	function ShowColorPicker() {
+		setIsColorPicker((isColorPicker) => !isColorPicker);
 	}
 
 	return (
@@ -123,6 +130,9 @@ function ModelController({
 							proxyState.inDisplayer = true;
 						}}
 					/>
+					<div onClick={ShowColorPicker}>
+						<IoIosColorPalette size={30} />
+					</div>
 					<div onClick={handleShotScreen}>
 						<BiScreenshot size={30} opacity={0.7} />
 					</div>
@@ -149,12 +159,14 @@ function DisplayCanvas({ glbData }) {
 	const [controller, setController] = useState(initialController);
 	const [screenshotImg, setScreenshotImg] = useState("");
 	const [displayModal, setDisplayModal] = useState(false);
+	const [isColorPicker, setIsColorPicker] = useState(false);
+
 	const { zoom, rotate } = controller;
 	const screenshot = useRef();
 
 	return (
 		snap.inCanvas && (
-			<div className="display-canvas_page">
+			<div className="display-canvas_page" style={{ backgroundColor: snap.bg }}>
 				<Logo newClass={"display-logo"} />
 				<ModelController
 					controller={controller}
@@ -162,7 +174,9 @@ function DisplayCanvas({ glbData }) {
 					screenshot={screenshot}
 					setScreenshotImg={setScreenshotImg}
 					setDisplayModal={setDisplayModal}
+					setIsColorPicker={setIsColorPicker}
 				/>
+				{isColorPicker && <ColorPicker purpose={"themeChange"} />}
 				{displayModal && (
 					<div className="screenshot-modal_container">
 						<div className="screenshot-modal">
