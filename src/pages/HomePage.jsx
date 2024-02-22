@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useSnapshot } from "valtio";
 import CustomBtn from "../components/CustomBtn";
 import HomeModel from "../components/HomeModel";
+import Logo from "../components/Logo";
 import {
 	headContainerAnimation,
 	headContentAnimation,
@@ -16,11 +17,7 @@ function HomePage() {
 			{snap.inHome && (
 				<motion.section className="home" {...slideAnimation("left")}>
 					<motion.header {...slideAnimation("down")} className="header">
-						<img
-							src="./logo.png"
-							alt="logo"
-							className="logo w-16 object-contain"
-						/>
+						<Logo />
 					</motion.header>
 					<motion.div className="home-content" {...headContainerAnimation}>
 						<div className="home-content_textual">
