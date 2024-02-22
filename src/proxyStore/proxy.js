@@ -8,6 +8,7 @@ const proxyState = proxy({
 	inMockup: false,
 	inCanvas: false,
 	color: "#EFBD48",
+	bg: "#101010",
 	isLogoTexture: true,
 	isFullTexture: false,
 	logoDecal: "./threejs.png",
