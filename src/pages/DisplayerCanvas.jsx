@@ -167,7 +167,13 @@ function DisplayCanvas({ glbData }) {
 	return (
 		snap.inCanvas && (
 			<div className="display-canvas_page" style={{ backgroundColor: snap.bg }}>
-				<Logo newClass={"display-logo"} />
+				<Logo
+					newClass={"display-logo"}
+					handleClick={() => {
+						proxyState.inCanvas = false;
+						proxyState.inHome = true;
+					}}
+				/>
 				<ModelController
 					controller={controller}
 					setController={setController}

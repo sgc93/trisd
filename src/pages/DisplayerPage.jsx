@@ -111,7 +111,12 @@ function DisplayPage({ setGlbData }) {
 	return (
 		snap.inDisplayer && (
 			<section className="display_page">
-				<Logo />
+				<Logo
+					handleClick={() => {
+						proxyState.inDisplayer = false;
+						proxyState.inHome = true;
+					}}
+				/>
 				<div className="display-section">
 					<div className="display-section1 section">
 						<div className="display-section1_text">
