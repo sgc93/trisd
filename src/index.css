@@ -308,6 +308,8 @@ button {
 
 .display-section_dropZone h4 span:nth-child(2) {
 	color: #f9af0166;
+	font-size: 0.9rem;
+	text-align: center;
 }
 
 .display-section_dropZone h4 span:nth-child(3) {
@@ -337,6 +339,23 @@ button {
 .display-section_fileName {
 	color: #6d6d6d;
 	font-size: 1.2rem;
+}
+
+.animate {
+	color: red;
+	animation-name: animate;
+	animation-duration: 0.3s;
+	animation-iteration-count: calc(3);
+}
+
+@keyframes animate {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
 }
 
 .display-section_btns,
