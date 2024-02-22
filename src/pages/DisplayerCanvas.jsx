@@ -1,4 +1,4 @@
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import { Center, OrbitControls, useGLTF } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { motion } from "framer-motion";
 import { easing } from "maath";
@@ -14,7 +14,6 @@ import proxyState from "../proxyStore/proxy";
 
 function Model({ glbData, controller }) {
 	const { movement } = controller;
-	const snap = useSnapshot(proxyState);
 	const { scene } = useGLTF(glbData);
 	const model = useRef();
 
@@ -33,26 +32,37 @@ function Model({ glbData, controller }) {
 
 	return (
 		<group ref={model}>
-			<primitive object={scene} />
+			<Center>
+				<primitive scale={[1.4, 1.4, 1.4]} object={scene} />
+			</Center>
 		</group>
 	);
 }
 
-function handleDownload() {
-	const canvas = document.querySelector("canvas");
-	const dataURL = canvas.current.toDataURL();
-	const link = document.createElement("a");
-
-	link.href = dataURL;
-	link.download = "canvas.png";
-	document.body.appendChild(link);
-	link.click();
-	document.body.removeChild(link);
-}
-
-function ModelController({ controller, setController }) {
+function ModelController({
+	controller,
+	setController,
+	screenshot,
+	setDisplayModal,
+	setScreenshotImg,
+}) {
 	const [showDragIndicator, setShowDragIndicator] = useState(false);
 	const { zoom, rotate, movement } = controller;
+
+	function handleShotScreen() {
+		if (!screenshot.current) return;
+		const imgUrl = screenshot.current.toDataURL();
+		setScreenshotImg((url) => imgUrl);
+		setDisplayModal(true);
+
+		console.log("converting...done!");
+		// const link = document.createElement("a");
+
+		// link.href = imgUrl;
+		// link.download = "trisD-screenshot.png";
+		// document.body.appendChild(link);
+		// link.click();
+	}
 
 	return (
 		<motion.div
@@ -113,7 +123,7 @@ function ModelController({ controller, setController }) {
 							proxyState.inDisplayer = true;
 						}}
 					/>
-					<div onClick={handleDownload}>
+					<div onClick={handleShotScreen}>
 						<BiScreenshot size={30} opacity={0.7} />
 					</div>
 				</div>
@@ -137,7 +147,10 @@ const initialController = {
 function DisplayCanvas({ glbData }) {
 	const snap = useSnapshot(proxyState);
 	const [controller, setController] = useState(initialController);
-	const { zoom, rotate, movement } = controller;
+	const [screenshotImg, setScreenshotImg] = useState("");
+	const [displayModal, setDisplayModal] = useState(false);
+	const { zoom, rotate } = controller;
+	const screenshot = useRef();
 
 	return (
 		snap.inCanvas && (
@@ -146,12 +159,30 @@ function DisplayCanvas({ glbData }) {
 				<ModelController
 					controller={controller}
 					setController={setController}
+					screenshot={screenshot}
+					setScreenshotImg={setScreenshotImg}
+					setDisplayModal={setDisplayModal}
 				/>
+				{displayModal && (
+					<div className="screenshot-modal_container">
+						<div className="screenshot-modal">
+							<div>
+								<h4>Your screenshot</h4>
+							</div>
+							<div className="img-container">
+								<img
+									src={screenshotImg ? screenshotImg : "/model.png"}
+									alt="model_screenshot"
+								/>
+							</div>
+						</div>
+					</div>
+				)}
 				<Suspense fallback={<Loading message={"rendering ..."} />}>
 					<div className="display-canvas">
-						<Canvas className="modelCanvas">
-							<ambientLight />
-							<pointLight position={[10, 10, 10]} />
+						<Canvas ref={screenshot}>
+							<ambientLight intensity={1.5} />
+							<spotLight position={[10, 15, 10]} penumbra={1} castShadow />
 							<OrbitControls enableZoom={zoom} enableRotate={rotate} />
 							<Model glbData={glbData} controller={controller} />
 						</Canvas>
