@@ -29,8 +29,10 @@ function Model({ glbData }) {
 	);
 }
 
-function ModelController() {
+function ModelController({ controller, setController }) {
 	const [showDragIndicator, setShowDragIndicator] = useState(false);
+	const { zoom, rotate, movement } = controller;
+
 	return (
 		<motion.div
 			className="controller-box"
@@ -40,18 +42,45 @@ function ModelController() {
 			onHoverEnd={() => setShowDragIndicator(false)}
 		>
 			<div className="model-controller">
-				<div className="rotation-controller controller">
-					<FaToggleOff className="toggle_icon" />
+				<div
+					className="rotation-controller controller"
+					onClick={() => {
+						setController((state) => ({ ...state, rotate: !rotate }));
+					}}
+				>
+					{rotate ? (
+						<FaToggleOn className="toggle_icon on" />
+					) : (
+						<FaToggleOff className="toggle_icon" />
+					)}
 					<span>Enable Rotation</span>
 				</div>
 
-				<div className="zoom-controller controller">
-					<FaToggleOff className="toggle_icon" />
+				<div
+					className="zoom-controller controller"
+					onClick={() => {
+						setController((state) => ({ ...state, zoom: !zoom }));
+					}}
+				>
+					{zoom ? (
+						<FaToggleOn className="toggle_icon on" />
+					) : (
+						<FaToggleOff className="toggle_icon" />
+					)}
 					<span>Enable zoom in/out</span>
 				</div>
 
-				<div className="orbit-controller controller">
-					<FaToggleOn className="toggle_icon on" />
+				<div
+					className="orbit-controller controller"
+					onClick={() => {
+						setController((state) => ({ ...state, movement: !movement }));
+					}}
+				>
+					{movement ? (
+						<FaToggleOn className="toggle_icon on" />
+					) : (
+						<FaToggleOff className="toggle_icon" />
+					)}
 					<span>Disable movement with cursor</span>
 				</div>
 			</div>
@@ -65,13 +94,26 @@ function ModelController() {
 	);
 }
 
+const initialController = {
+	zoom: false,
+	rotate: false,
+	movement: true,
+};
+
 function DisplayCanvas({ glbData }) {
 	const snap = useSnapshot(proxyState);
+	const [controller, setController] = useState(initialController);
+	const [zoom, setZoom] = useState(false);
 	return (
 		snap.inCanvas && (
 			<div className="display-canvas_page">
 				<Logo newClass={"display-logo"} />
-				<ModelController />
+				<ModelController
+					controller={controller}
+					setController={setController}
+					zoom={zoom}
+					setZoom={setZoom}
+				/>
 				<Suspense fallback={<Loading message={"rendering ..."} />}>
 					<Model glbData={glbData} />
 				</Suspense>
