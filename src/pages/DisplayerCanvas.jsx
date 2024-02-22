@@ -21,7 +21,7 @@ function Model({ glbData, controller }) {
 		if (model.current && movement) {
 			easing.dampE(
 				model.current.rotation,
-				[state.pointer.y / 4, state.pointer.x / 3, 0],
+				[state.pointer.y, state.pointer.x, 0],
 				0.5
 			);
 		}
