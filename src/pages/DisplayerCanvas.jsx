@@ -1,32 +1,53 @@
 import { OrbitControls, useGLTF } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { motion } from "framer-motion";
-import { Suspense, useState } from "react";
+import { easing } from "maath";
+import { Suspense, useRef, useState } from "react";
+import { BiScreenshot } from "react-icons/bi";
 import { FaToggleOff, FaToggleOn } from "react-icons/fa6";
 import { MdDragIndicator } from "react-icons/md";
 import { useSnapshot } from "valtio";
+import CustomBtn from "../components/CustomBtn";
 import Loading from "../components/Loading";
 import Logo from "../components/Logo";
 import proxyState from "../proxyStore/proxy";
 
-function Model({ glbData }) {
+function Model({ glbData, controller }) {
+	const { movement } = controller;
 	const snap = useSnapshot(proxyState);
 	const { scene } = useGLTF(glbData);
+	const model = useRef();
+
+	useFrame((state, delta) => {
+		if (model.current && movement) {
+			easing.dampE(
+				model.current.rotation,
+				[state.pointer.y / 4, state.pointer.x / 3, 0],
+				0.5
+			);
+		}
+	});
 
 	// if (error) console.log(error.message);
 	if (!glbData) return;
 
 	return (
-		snap.inCanvas && (
-			<div className="display-canvas">
-				<Canvas>
-					<ambientLight />
-					<OrbitControls />
-					<primitive object={scene} />
-				</Canvas>
-			</div>
-		)
+		<group ref={model}>
+			<primitive object={scene} />
+		</group>
 	);
+}
+
+function handleDownload() {
+	const canvas = document.querySelector("canvas");
+	const dataURL = canvas.current.toDataURL();
+	const link = document.createElement("a");
+
+	link.href = dataURL;
+	link.download = "canvas.png";
+	document.body.appendChild(link);
+	link.click();
+	document.body.removeChild(link);
 }
 
 function ModelController({ controller, setController }) {
@@ -83,6 +104,19 @@ function ModelController({ controller, setController }) {
 					)}
 					<span>Disable movement with cursor</span>
 				</div>
+				<div className="controller-btns">
+					<CustomBtn
+						type={"outline"}
+						title={"Change File"}
+						handleClick={() => {
+							proxyState.inCanvas = false;
+							proxyState.inDisplayer = true;
+						}}
+					/>
+					<div onClick={handleDownload}>
+						<BiScreenshot size={30} opacity={0.7} />
+					</div>
+				</div>
 			</div>
 			<MdDragIndicator
 				className="drag_indicator"
@@ -103,7 +137,8 @@ const initialController = {
 function DisplayCanvas({ glbData }) {
 	const snap = useSnapshot(proxyState);
 	const [controller, setController] = useState(initialController);
-	const [zoom, setZoom] = useState(false);
+	const { zoom, rotate, movement } = controller;
+
 	return (
 		snap.inCanvas && (
 			<div className="display-canvas_page">
@@ -111,11 +146,16 @@ function DisplayCanvas({ glbData }) {
 				<ModelController
 					controller={controller}
 					setController={setController}
-					zoom={zoom}
-					setZoom={setZoom}
 				/>
 				<Suspense fallback={<Loading message={"rendering ..."} />}>
-					<Model glbData={glbData} />
+					<div className="display-canvas">
+						<Canvas className="modelCanvas">
+							<ambientLight />
+							<pointLight position={[10, 10, 10]} />
+							<OrbitControls enableZoom={zoom} enableRotate={rotate} />
+							<Model glbData={glbData} controller={controller} />
+						</Canvas>
+					</div>
 				</Suspense>
 			</div>
 		)
