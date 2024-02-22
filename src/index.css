@@ -397,6 +397,16 @@ button {
 	color: #fff;
 }
 
+/* colorpicker */
+
+.colorPicker {
+	position: absolute;
+	left: 4rem;
+	bottom: 16rem;
+
+	z-index: 999;
+}
+
 /* screenshot displayer modal window */
 /* .screenshot-modal_container  */
 .screenshot-modal {
