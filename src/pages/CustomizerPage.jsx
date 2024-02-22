@@ -24,7 +24,7 @@ function CustomizerPage() {
 	function generateTabContent() {
 		switch (activeEditorTab) {
 			case "colorpicker":
-				return <ColorPicker />;
+				return <ColorPicker purpose={"customize"} />;
 			case "filepicker":
 				return <FilePicker file={file} setFile={setFile} readFile={readFile} />;
 			default:
