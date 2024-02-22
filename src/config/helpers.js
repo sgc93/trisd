@@ -1,5 +1,6 @@
-export const downloadCanvasToImage = () => {
-	const canvas = document.querySelector("canvas");
+export function downloadCanvasToImage() {
+	// const canvas = document.querySelector(".canvas");
+	const canvas = document.getElementById("screenshot");
 	const dataURL = canvas.toDataURL();
 	const link = document.createElement("a");
 
@@ -8,7 +9,7 @@ export const downloadCanvasToImage = () => {
 	document.body.appendChild(link);
 	link.click();
 	document.body.removeChild(link);
-};
+}
 
 export const reader = (file) =>
 	new Promise((resolve, reject) => {
