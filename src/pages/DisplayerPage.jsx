@@ -7,13 +7,6 @@ import proxyState from "../proxyStore/proxy";
 function DisplayPage({ setGlbData }) {
 	const snap = useSnapshot(proxyState);
 	const [fileName, setFileName] = useState("");
-	// useEffect(() => {
-	// 	return () => {
-	// 		if (glbData) {
-	// 			URL.revokeObjectURL(glbData);
-	// 		}
-	// 	};
-	// }, []);
 
 	async function handleFileUpload(event) {
 		const file = event.target.files[0];
