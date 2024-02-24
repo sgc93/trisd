@@ -6,13 +6,23 @@ import { MdEdit } from "react-icons/md";
 
 function EditPanel({
 	newLogo,
-	handleLogoUploading,
-	handleLogoReset,
-	updateLogoWidth,
 	logoWidth,
+	handleLogoUploading,
+	updateLogoWidth,
+	updateLargerText,
+	handleLogoReset,
+	largeText,
+	smallText,
+	largeSize,
+	smallSize,
+	updateSmallerText,
+	resetTextChange,
+	updateLargeSize,
+	updateSmallSize,
 }) {
 	const [showPanel, setShowPanel] = useState(false);
 	const [editLogo, setEditLogo] = useState(false);
+	const [editText, setEditText] = useState(false);
 
 	function handleOpeningPanel() {
 		setShowPanel(true);
@@ -21,7 +31,11 @@ function EditPanel({
 	return (
 		<div className="edit-panel">
 			{showPanel && (
-				<motion.div className="edit-panel_box" drag dragElastic>
+				<motion.div className="edit-panel_box" drag dragElastic={1.18}>
+					<div className="close-btn">
+						<IoMdClose className="icon" onClick={() => setShowPanel(false)} />
+					</div>
+
 					<div className="edit-panel_content glassmorphism">
 						<div className="edit-logo">
 							<div
@@ -75,11 +89,74 @@ function EditPanel({
 							)}
 						</div>
 						<div className="edit-text">
-							<div className="tab">
-								<span>changeLogo</span>
-								<IoIosArrowDown className="icon icon-small" />
+							<div
+								className="tab"
+								onClick={() => setEditText((editText) => !editText)}
+							>
+								<span>change and edit texts</span>
+								<IoIosArrowDown
+									className={`icon icon-small ${
+										editText ? "icon-rotate-x" : ""
+									}`}
+								/>
 							</div>
-							<div className="edit-tab"></div>
+							{editText && (
+								<div className="edit-tab">
+									<div className="edit-tab-text">
+										<div className="edit-text-large text">
+											<div>
+												<label htmlFor="largeText">large: </label>
+												<input
+													id="largeText"
+													type="text"
+													value={largeText}
+													onChange={updateLargerText}
+													placeholder="large text content"
+												/>
+											</div>
+											{largeText && (
+												<div className="edit-tab-size">
+													<label htmlFor="sizeInput">👆 size: </label>
+													<input
+														type="number"
+														id="sizeInput"
+														value={largeSize}
+														onChange={updateLargeSize}
+													/>
+												</div>
+											)}
+										</div>
+										<div className="edit-text-small text">
+											<div>
+												<label htmlFor="smallText">small: </label>
+												<input
+													type="text"
+													value={smallText}
+													onChange={updateSmallerText}
+													placeholder="Small text content"
+												/>
+											</div>
+											{smallText && (
+												<div className="edit-tab-size">
+													<label htmlFor="sizeInput">👆size : </label>
+													<input
+														type="number"
+														id="sizeInput"
+														value={smallSize}
+														onChange={updateSmallSize}
+													/>
+												</div>
+											)}
+										</div>
+
+										{editText && (
+											<button onClick={resetTextChange}>
+												<GrPowerReset className="icon icon-small" />
+											</button>
+										)}
+									</div>
+								</div>
+							)}
 						</div>
 						<div className="tab edit-btn">
 							<span>changeLogo</span>
@@ -89,9 +166,6 @@ function EditPanel({
 							<span>changeLogo</span>
 							<IoIosArrowDown className="icon icon-small" />
 						</div>
-					</div>
-					<div className="close-btn">
-						<IoMdClose className="icon" onClick={() => setShowPanel(false)} />
 					</div>
 				</motion.div>
 			)}
