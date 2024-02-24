@@ -30,6 +30,7 @@
 }
 
 .title-1 {
+	text-transform: uppercase;
 	font-size: 5rem;
 	font-weight: 100;
 	line-height: 4.6rem;
@@ -88,7 +89,7 @@
 	display: flex;
 	flex-direction: column;
 
-	height: 30rem;
+	max-height: 30rem;
 	width: 15rem;
 	border-radius: 1.2rem;
 
@@ -169,7 +170,8 @@
 	font-weight: 100;
 }
 
-.edit-tab-size input {
+.edit-tab-size input,
+.edit-tab-text input {
 	width: 7rem;
 	background-color: var(--color-border2);
 	padding: 0.2rem 0.4rem;
@@ -179,7 +181,8 @@
 	transition: 0.4s;
 }
 
-.edit-tab-size input:focus {
+.edit-tab-size input:focus,
+.edit-tab-text input:focus {
 	outline: none;
 	border-color: var(--color-border2);
 	background-color: var(--color-text-secondary);
@@ -198,6 +201,24 @@
 
 .close-btn > .icon {
 	font-size: 1.5rem;
+}
+
+/* --text-- */
+.edit-tab-text {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1rem;
+}
+
+.text {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+
+.text div label {
+	font-size: 10px;
 }
 
 /*CustomBtn */
