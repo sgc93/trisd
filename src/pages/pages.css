@@ -1,0 +1,55 @@
+.home {
+	position: relative;
+	width: 100vw;
+	min-height: 100vh;
+
+	background-color: var(--color-bg-primary);
+	color: var(--color-text-primary);
+	overflow: hidden;
+}
+
+.home-model {
+	width: 100vw;
+	height: 100vh;
+}
+
+.home-content {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	z-index: 1;
+}
+
+.home-content_textual {
+	display: flex;
+	flex-direction: column;
+	gap: 3.5rem;
+
+	width: 50%;
+	padding-left: 5rem;
+	padding-top: 5rem;
+}
+
+.head-text {
+	font-size: 5.5rem;
+	font-weight: bold;
+}
+
+.home-content_model {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: flex-end;
+
+	width: 100%;
+	height: 100%;
+
+	z-index: 99;
+}
+
+.canvas {
+	width: 100%;
+	height: 100%;
+}
