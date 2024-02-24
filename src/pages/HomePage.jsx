@@ -8,6 +8,7 @@ import "./pages.css";
 function HomePage() {
 	const [newLogo, setNewLogo] = useState("");
 	const [logoUrl, setLogoUrl] = useState("");
+	const [logoWidth, setLogoWidth] = useState(5);
 
 	function handleLogoUploading(e) {
 		const file = e.target.files[0];
@@ -24,18 +25,27 @@ function HomePage() {
 	function handleLogoReset() {
 		setNewLogo("");
 		setLogoUrl("");
+		setLogoWidth(5);
 	}
+
+	function updateLogoWidth(newWidth) {
+		if (newWidth) setLogoWidth(newWidth);
+		console.log("width: " + newWidth);
+	}
+
 	return (
 		<section className="home">
 			{/* <div className="home-model">
 				<HomeCanvas />
 			</div> */}
-			<Logo url={logoUrl} />
+			<Logo url={logoUrl} width={logoWidth} />
 			<HomeContent />
 			<EditPanel
 				newLogo={newLogo}
 				handleLogoUploading={handleLogoUploading}
 				handleLogoReset={handleLogoReset}
+				updateLogoWidth={updateLogoWidth}
+				logoWidth={logoWidth}
 			/>
 		</section>
 	);
