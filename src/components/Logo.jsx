@@ -9,7 +9,7 @@ function Logo({ newClass, handleClick, url }) {
 			className={`logo ${newClass}`}
 			onClick={handleClick}
 		>
-			<img src={url ? url : "./logo.png"} alt="trisD" draggable={false} />
+			<img src={url ? url : "./logo.png"} alt="app_logo" draggable={false} />
 		</motion.div>
 	);
 }
