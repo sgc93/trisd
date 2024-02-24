@@ -1,3 +1,4 @@
+import proxyState from "../proxyStore/proxy";
 import CustomBtn from "./CustomBtn";
 import "./components.css";
 
@@ -9,7 +10,11 @@ function HomeContent() {
 			<CustomBtn
 				type={"filled"}
 				title={"try displaying"}
-				handleClick={() => {}}
+				handleClick={() => {
+					proxyState.inHome = false;
+					proxyState.inDisplayer = true;
+					console.log(proxyState);
+				}}
 			/>
 		</div>
 	);
