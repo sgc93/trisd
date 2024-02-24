@@ -5,7 +5,12 @@ import Logo from "../components/Logo";
 import { reader } from "../config/helpers";
 import "./pages.css";
 
+import { useSnapshot } from "valtio";
+import HomeCanvas from "../canvas/homeCanvas/HomeCanvas";
+import proxyState from "../proxyStore/proxy";
+
 function HomePage() {
+	const snap = useSnapshot(proxyState);
 	const [newLogo, setNewLogo] = useState("");
 	const [logoUrl, setLogoUrl] = useState("");
 	const [logoWidth, setLogoWidth] = useState(5);
@@ -34,20 +39,22 @@ function HomePage() {
 	}
 
 	return (
-		<section className="home">
-			{/* <div className="home-model">
-				<HomeCanvas />
-			</div> */}
-			<Logo url={logoUrl} width={logoWidth} />
-			<HomeContent />
-			<EditPanel
-				newLogo={newLogo}
-				handleLogoUploading={handleLogoUploading}
-				handleLogoReset={handleLogoReset}
-				updateLogoWidth={updateLogoWidth}
-				logoWidth={logoWidth}
-			/>
-		</section>
+		snap.inHome && (
+			<section className="home">
+				<div className="home-model">
+					<HomeCanvas />
+				</div>
+				<Logo url={logoUrl} width={logoWidth} />
+				<HomeContent />
+				<EditPanel
+					newLogo={newLogo}
+					handleLogoUploading={handleLogoUploading}
+					handleLogoReset={handleLogoReset}
+					updateLogoWidth={updateLogoWidth}
+					logoWidth={logoWidth}
+				/>
+			</section>
+		)
 	);
 }
 
