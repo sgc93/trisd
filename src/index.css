@@ -30,6 +30,7 @@ button {
 :root {
 	--color-bg-primary: #101010;
 	--color-text-primary: #fff;
+	--color-text-secondary: #ffffff63;
 }
 
 .cursor {
