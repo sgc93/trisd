@@ -15,6 +15,11 @@ function HomePage() {
 	const [logoUrl, setLogoUrl] = useState("");
 	const [logoWidth, setLogoWidth] = useState(5);
 
+	const [largeText, setLargeText] = useState("3D DISPLAYER");
+	const [largeSize, setLargeSize] = useState(5);
+	const [smallText, setSmallText] = useState("display your 3d models");
+	const [smallSize, setSmallSize] = useState(2);
+
 	function handleLogoUploading(e) {
 		const file = e.target.files[0];
 		try {
@@ -38,6 +43,25 @@ function HomePage() {
 		console.log("width: " + newWidth);
 	}
 
+	function updateLargerText(e) {
+		setLargeText(e.target.value);
+	}
+	function updateSmallerText(e) {
+		setSmallText(e.target.value);
+	}
+
+	function resetTextChange() {
+		setLargeText("3D DISPLAYER");
+		setSmallText("display your 3d models");
+	}
+
+	function updateLargeSize(e) {
+		setLargeSize(e.target.value);
+	}
+	function updateSmallSize(e) {
+		setSmallSize(e.target.value);
+	}
+
 	return (
 		snap.inHome && (
 			<section className="home">
@@ -45,13 +69,27 @@ function HomePage() {
 					<HomeCanvas />
 				</div>
 				<Logo url={logoUrl} width={logoWidth} />
-				<HomeContent />
+				<HomeContent
+					largeText={largeText}
+					smallText={smallText}
+					largeSize={largeSize}
+					smallSize={smallSize}
+				/>
 				<EditPanel
 					newLogo={newLogo}
 					handleLogoUploading={handleLogoUploading}
 					handleLogoReset={handleLogoReset}
 					updateLogoWidth={updateLogoWidth}
 					logoWidth={logoWidth}
+					updateLargerText={updateLargerText}
+					updateSmallerText={updateSmallerText}
+					updateLargeSize={updateLargeSize}
+					updateSmallSize={updateSmallSize}
+					resetTextChange={resetTextChange}
+					largeSize={largeSize}
+					smallSize={smallSize}
+					largeText={largeText}
+					smallText={smallText}
 				/>
 			</section>
 		)
