@@ -1,4 +1,4 @@
-import HomeModel from "../components/HomeModel";
+import HomeCanvas from "../canvas/homeCanvas/HomeCanvas";
 import Logo from "../components/Logo";
 import "./pages.css";
 
@@ -10,11 +10,10 @@ function HomePage() {
 	return (
 		<section className="home">
 			<div className="home-model">
-				<HomeModel />
+				<HomeCanvas />
 			</div>
 			<div className="home-content">
 				<Logo />
-				<HomeContent />
 			</div>
 		</section>
 	);
