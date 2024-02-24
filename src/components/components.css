@@ -1,0 +1,12 @@
+/* Logo */
+
+.logo {
+	width: 5rem;
+	height: 5rem;
+
+	margin: 3rem;
+}
+
+.logo img {
+	width: 100%;
+}
