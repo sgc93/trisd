@@ -44,6 +44,39 @@
 	text-transform: uppercase;
 }
 
+/* EditPanel */
+.edit-panel {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+
+	margin: 0 3rem 3rem 0;
+}
+
+.edit-panel:hover .icon {
+	transform: rotateY(180deg);
+	color: var(--color-text-primary);
+}
+
+.edit-panel:hover .edit-panel_btn > span {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.edit-panel_btn span {
+	opacity: 0;
+	transform: translateY(100%);
+	transition: 0.5s;
+	color: var(--color-text-secondary);
+	padding: 0.2rem 0.5rem;
+	border-radius: 0.7rem;
+}
+
+.edit-panel_btn {
+	display: flex;
+	align-items: center;
+}
+
 /*CustomBtn */
 
 .custom-btn {
