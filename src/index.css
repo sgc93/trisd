@@ -29,8 +29,11 @@ button {
 }
 :root {
 	--color-bg-primary: #101010;
+	--color-bg-secondary: #82808435;
 	--color-text-primary: #fff;
 	--color-text-secondary: #ffffff63;
+	--color-text-secondary1: #ffffffcb;
+	--color-border2: rgba(255, 255, 255, 0.18);
 }
 
 .cursor {
@@ -56,14 +59,25 @@ button {
 
 .icon {
 	color: var(--color-text-secondary);
-	font-size: 2rem;
-
 	transition: 1s;
 }
 
-.icon:hover {
+.icon-rotate-y:hover {
 	transform: rotateY(180deg);
 	color: var(--color-text-primary);
+}
+
+.icon-rotate-x {
+	transform: rotateX(180deg);
+	color: var(--color-text-primary);
+}
+
+.icon-large {
+	font-size: 2rem;
+}
+
+.icon-small {
+	font-size: 1.2rem;
 }
 
 /* feature page */
@@ -472,11 +486,11 @@ button {
 }
 
 .glassmorphism {
-	background: rgba(255, 255, 255, 0.25);
+	background: var(--color-bg-secondary);
 	box-shadow: 0 2px 30px 0 rgba(31, 38, 135, 0.07);
-	backdrop-filter: blur(4px);
-	-webkit-backdrop-filter: blur(4px);
-	border: 1px solid rgba(255, 255, 255, 0.18);
+	backdrop-filter: blur(2px);
+	-webkit-backdrop-filter: blur(2px);
+	border: 1px solid var(--color-border2);
 }
 
 input[type="file"] {
