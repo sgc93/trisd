@@ -1,10 +1,7 @@
 import HomeCanvas from "../canvas/homeCanvas/HomeCanvas";
+import HomeContent from "../components/HomeContent";
 import Logo from "../components/Logo";
 import "./pages.css";
-
-function HomeContent() {
-	return <div className="home-content_text">TrisD</div>;
-}
 
 function HomePage() {
 	return (
@@ -12,9 +9,8 @@ function HomePage() {
 			<div className="home-model">
 				<HomeCanvas />
 			</div>
-			<div className="home-content">
-				<Logo />
-			</div>
+			<Logo />
+			<HomeContent />
 		</section>
 	);
 }
