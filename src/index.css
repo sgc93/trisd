@@ -27,6 +27,10 @@ button {
 	position: relative;
 	@apply relative w-full h-screen overflow-hidden;
 }
+:root {
+	--color-bg-primary: #101010;
+	--color-text-primary: #fff;
+}
 
 .cursor {
 	position: absolute;
@@ -45,58 +49,6 @@ button {
 	background-color: rgba(249, 187, 0, 0.573);
 	width: 3rem;
 	height: 3rem;
-}
-
-.home {
-	background-color: #101010;
-	color: #fff;
-
-	display: flex;
-	flex-direction: column;
-	width: 100vw;
-	min-height: 100vh;
-
-	padding: 2rem;
-	/* @apply w-fit xl:h-full flex xl:justify-between justify-start items-start flex-col xl:py-8 xl:px-36 sm:p-8 p-6 max-xl:gap-7 absolute z-10; */
-}
-
-.home-content {
-	position: relative;
-	gap: 2rem;
-}
-
-.home-content_textual {
-	display: flex;
-	flex-direction: column;
-	gap: 3.5rem;
-
-	width: 50%;
-	padding-left: 5rem;
-	padding-top: 5rem;
-}
-
-.head-text {
-	font-size: 5.5rem;
-	font-weight: bold;
-	/* @apply xl:text-[3rem] text-[3rem] xl:leading-[11rem] leading-[7rem] font-black text-white; */
-}
-
-.home-content_model {
-	position: absolute;
-	top: 0;
-	left: 0;
-	display: flex;
-	align-items: flex-end;
-
-	width: 100%;
-	height: 100%;
-
-	z-index: 99;
-}
-
-.canvas {
-	width: 100%;
-	height: 100%;
 }
 
 /* feature page */
@@ -136,18 +88,6 @@ button {
 
 .drag_indicator {
 	transition: 0.3s;
-}
-
-.feature-header {
-	width: 100%;
-
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
-
-.feature-header img {
-	width: 5rem;
 }
 
 .feature-header button {
