@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { GrPowerReset } from "react-icons/gr";
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown, IoMdClose } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
 
 function EditPanel({
@@ -90,7 +90,9 @@ function EditPanel({
 							<IoIosArrowDown className="icon icon-small" />
 						</div>
 					</div>
-					{/* <MdOutlineDragIndicator className="icon" /> */}
+					<div className="close-btn">
+						<IoMdClose className="icon" onClick={() => setShowPanel(false)} />
+					</div>
 				</motion.div>
 			)}
 			{!showPanel && (
