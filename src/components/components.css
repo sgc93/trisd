@@ -53,7 +53,7 @@
 	margin: 0 3rem 3rem 0;
 }
 
-.edit-panel:hover .icon {
+.edit-panel:hover .icon-rotate-y {
 	transform: rotateY(180deg);
 	color: var(--color-text-primary);
 }
@@ -75,6 +75,86 @@
 .edit-panel_btn {
 	display: flex;
 	align-items: center;
+}
+
+/* -- */
+
+.edit-panel_box {
+	display: flex;
+	align-items: flex-end;
+
+	margin-bottom: 1rem;
+}
+
+.edit-panel_content {
+	display: flex;
+	flex-direction: column;
+
+	height: 30rem;
+	width: 15rem;
+	border-radius: 1.2rem;
+
+	padding: 0.8rem;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.edit-panel_content::-webkit-scrollbar {
+	background-color: transparent;
+	width: 0.7rem;
+}
+
+.edit-panel_content::-webkit-scrollbar-thumb {
+	background-color: var(--color-border2);
+	border-radius: 0.7rem;
+}
+
+.tab {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	background: var(--color-border2);
+	color: var(--color-text-primary);
+
+	font-weight: 100;
+	text-transform: lowercase;
+
+	padding: 0.2rem 0.4rem;
+	margin: 0.2rem 0;
+
+	border-radius: 0.4rem;
+}
+
+.edit-logo {
+	width: 100%;
+	overflow: hidden;
+}
+
+.edit-tab {
+	height: 10rem;
+	width: 100%;
+	background: var(--color-border2);
+
+	display: flex;
+	flex-direction: column;
+
+	padding: 1rem;
+}
+
+.edit-tab-file {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.edit-logo label {
+	width: 100%;
+	border: 1px solid var(--color-text-secondary);
+	padding: 0.3rem 0.5rem;
+	border-radius: 0.6rem;
+	font-weight: 100;
+	text-align: center;
 }
 
 /*CustomBtn */
