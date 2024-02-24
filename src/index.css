@@ -43,13 +43,27 @@ button {
 }
 
 .def_cursor {
-	background-color: #a767ec65;
+	background-color: #9d71cbca;
 }
 
 .logo_cursor {
 	background-color: rgba(249, 187, 0, 0.573);
 	width: 3rem;
 	height: 3rem;
+}
+
+/* icon */
+
+.icon {
+	color: var(--color-text-secondary);
+	font-size: 2rem;
+
+	transition: 1s;
+}
+
+.icon:hover {
+	transform: rotateY(180deg);
+	color: var(--color-text-primary);
 }
 
 /* feature page */
