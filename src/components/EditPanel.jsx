@@ -4,7 +4,13 @@ import { GrPowerReset } from "react-icons/gr";
 import { IoIosArrowDown } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
 
-function EditPanel({ newLogo, handleLogoUploading, handleLogoReset }) {
+function EditPanel({
+	newLogo,
+	handleLogoUploading,
+	handleLogoReset,
+	updateLogoWidth,
+	logoWidth,
+}) {
 	const [showPanel, setShowPanel] = useState(false);
 	const [editLogo, setEditLogo] = useState(false);
 
@@ -48,10 +54,23 @@ function EditPanel({ newLogo, handleLogoUploading, handleLogoReset }) {
 										>
 											{newLogo ? newLogo.name : "upload your logo"}
 										</label>
-										<button onClick={handleLogoReset}>
-											<GrPowerReset className="icon icon-small" />
-										</button>
+										{newLogo && (
+											<button onClick={handleLogoReset}>
+												<GrPowerReset className="icon icon-small" />
+											</button>
+										)}
 									</div>
+									{newLogo && (
+										<div className="edit-tab-size">
+											<label htmlFor="widthInput">Width: </label>
+											<input
+												type="number"
+												id="widthInput"
+												value={logoWidth}
+												onChange={(e) => updateLogoWidth(e.target.value)}
+											/>
+										</div>
+									)}
 								</div>
 							)}
 						</div>
