@@ -2,11 +2,16 @@ import proxyState from "../proxyStore/proxy";
 import CustomBtn from "./CustomBtn";
 import "./components.css";
 
-function HomeContent() {
+function HomeContent({ largeText, smallText, largeSize, smallSize }) {
 	return (
 		<div className="home-content">
-			<div className="title-1"> 3D DISPLAYER</div>
-			<div className="text-2">DISPLAY YOUR 3D MODELS</div>
+			<div className="title-1" style={{ fontSize: `${largeSize}rem` }}>
+				{" "}
+				{largeText}
+			</div>
+			<div className="text-2" style={{ fontSize: `${smallSize}rem` }}>
+				{smallText}
+			</div>
 			<CustomBtn
 				type={"filled"}
 				title={"try displaying"}
