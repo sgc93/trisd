@@ -1,4 +1,4 @@
-import { Center, OrbitControls, useGLTF, useTexture } from "@react-three/drei";
+import { OrbitControls, useGLTF, useTexture } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useEffect, useRef, useState } from "react";
 
@@ -141,16 +141,16 @@ function HomeModel() {
 	}
 
 	return (
-		<Canvas ref={canvas}>
-			<ambientLight />
-			<directionalLight />
-			<OrbitControls enableZoom={true} />
-			<Suspense fallback={null}>
-				<Center>
+		<div onClick={changeColor} className="canvas">
+			<Canvas ref={canvas}>
+				<ambientLight />
+				<directionalLight />
+				<OrbitControls enableZoom={true} />
+				<Suspense fallback={null}>
 					<Model currentMesh={currentMesh} setCurrentMesh={setCurrentMesh} />
-				</Center>
-			</Suspense>
-		</Canvas>
+				</Suspense>
+			</Canvas>
+		</div>
 	);
 }
 
