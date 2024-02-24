@@ -185,6 +185,21 @@
 	background-color: var(--color-text-secondary);
 }
 
+.close-btn {
+	padding: 0.3rem;
+	margin: 0.1rem;
+	border-radius: 0.4rem;
+	transition: 0.4s;
+}
+
+.close-btn:hover {
+	background-color: var(--color-border2);
+}
+
+.close-btn > .icon {
+	font-size: 1.5rem;
+}
+
 /*CustomBtn */
 
 .custom-btn {
