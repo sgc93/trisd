@@ -6,6 +6,7 @@ import { reader } from "../config/helpers";
 import "./pages.css";
 
 import { useSnapshot } from "valtio";
+import MaterialEditor from "../components/MaterialEditor";
 import proxyState from "../proxyStore/proxy";
 
 function HomePage() {
@@ -102,6 +103,7 @@ function HomePage() {
 					btnText={btnText}
 					isContentDraggable={isContentDraggable}
 				/>
+				<MaterialEditor />
 				<EditPanel
 					newLogo={newLogo}
 					logoWidth={logoWidth}
