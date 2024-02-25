@@ -1,4 +1,5 @@
 import { useState } from "react";
+import HomeCanvas from "../canvas/homeCanvas/HomeCanvas";
 import EditPanel from "../components/EditPanel";
 import HomeContent from "../components/HomeContent";
 import Logo from "../components/Logo";
@@ -25,7 +26,7 @@ function HomePage() {
 	const [isLogoDraggable, setIsLogoDraggable] = useState(true);
 	const [isContentDraggable, setIsContentDraggable] = useState(true);
 
-	const [texture, setTexture] = useState({});
+	const [texture, setTexture] = useState("");
 
 	function handleLogoUploading(e) {
 		const file = e.target.files[0];
@@ -86,17 +87,16 @@ function HomePage() {
 		setIsContentDraggable((isContentDraggable) => !isContentDraggable);
 	}
 
-	function changeMaterial(newTexture, textureId) {
-		setTexture((texture) => newTexture);
-		console.log(`texture changed to ${textureId} successfully`);
+	function changeMaterial(textureId) {
+		setTexture(textureId);
 	}
 
 	return (
 		snap.inHome && (
 			<section className="home">
-				{/* <div className="home-model">
-					<HomeCanvas />
-				</div> */}
+				<div className="home-model">
+					<HomeCanvas newTexture={texture} />
+				</div>
 				<Logo
 					url={logoUrl}
 					width={logoWidth}
