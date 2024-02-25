@@ -23,7 +23,7 @@ function ColorPicker({ purpose }) {
 			}
 		>
 			<SketchPicker
-				color={isColor ? snap.color : snap.bg}
+				color={isColor ? snap.color : isTabEdit ? snap.homeBtn : snap.bg}
 				disableAlpha
 				onChange={(color) => performPurpose(color)}
 			/>
