@@ -34,6 +34,7 @@ button {
 	--color-text-secondary: #ffffff63;
 	--color-text-secondary1: #ffffffcb;
 	--color-border2: rgba(255, 255, 255, 0.18);
+	--color-bg-btn: #484848;
 }
 
 .cursor {
