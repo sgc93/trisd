@@ -6,7 +6,6 @@ import { reader } from "../config/helpers";
 import "./pages.css";
 
 import { useSnapshot } from "valtio";
-import HomeCanvas from "../canvas/homeCanvas/HomeCanvas";
 import proxyState from "../proxyStore/proxy";
 
 function HomePage() {
@@ -19,6 +18,8 @@ function HomePage() {
 	const [largeSize, setLargeSize] = useState(5);
 	const [smallText, setSmallText] = useState("display your 3d models");
 	const [smallSize, setSmallSize] = useState(2);
+
+	const [btnText, setBtnText] = useState("try displaying");
 
 	function handleLogoUploading(e) {
 		const file = e.target.files[0];
@@ -62,12 +63,16 @@ function HomePage() {
 		setSmallSize(e.target.value);
 	}
 
+	function updateBtnText(e) {
+		setBtnText(e.target.value);
+	}
+
 	return (
 		snap.inHome && (
 			<section className="home">
-				<div className="home-model">
+				{/* <div className="home-model">
 					<HomeCanvas />
-				</div>
+				</div> */}
 				<Logo url={logoUrl} width={logoWidth} />
 				<HomeContent
 					largeText={largeText}
@@ -77,19 +82,21 @@ function HomePage() {
 				/>
 				<EditPanel
 					newLogo={newLogo}
+					logoWidth={logoWidth}
 					handleLogoUploading={handleLogoUploading}
 					handleLogoReset={handleLogoReset}
 					updateLogoWidth={updateLogoWidth}
-					logoWidth={logoWidth}
+					largeSize={largeSize}
+					smallSize={smallSize}
+					largeText={largeText}
+					smallText={smallText}
 					updateLargerText={updateLargerText}
 					updateSmallerText={updateSmallerText}
 					updateLargeSize={updateLargeSize}
 					updateSmallSize={updateSmallSize}
 					resetTextChange={resetTextChange}
-					largeSize={largeSize}
-					smallSize={smallSize}
-					largeText={largeText}
-					smallText={smallText}
+					btnText={btnText}
+					updateBtnText={updateBtnText}
 				/>
 			</section>
 		)
