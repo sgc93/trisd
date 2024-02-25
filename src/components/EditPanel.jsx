@@ -6,6 +6,7 @@ import { MdEdit } from "react-icons/md";
 import { useSnapshot } from "valtio";
 import proxyState from "../proxyStore/proxy";
 import ColorPicker from "./ColorPicker";
+import DragIndicator from "./DragIndicator";
 
 function EditPanel({
 	newLogo,
@@ -31,6 +32,8 @@ function EditPanel({
 	const [editText, setEditText] = useState(false);
 	const [editBtn, setEditBtn] = useState(false);
 
+	const [showDragIndicator, setShowDragIndicator] = useState(false);
+
 	const snap = useSnapshot(proxyState);
 
 	function handleOpeningPanel() {
@@ -38,11 +41,19 @@ function EditPanel({
 	}
 
 	return (
-		<div className="edit-panel">
+		<div
+			className="edit-panel"
+			onMouseEnter={() => setShowDragIndicator(true)}
+			onMouseLeave={() => setShowDragIndicator(false)}
+		>
 			{showPanel && (
 				<motion.div className="edit-panel_box" drag dragElastic={1.18}>
-					<div className="close-btn">
-						<IoMdClose className="icon" onClick={() => setShowPanel(false)} />
+					<div>
+						<DragIndicator showDragIndicator={showDragIndicator} />
+
+						<div className="close-btn">
+							<IoMdClose className="icon" onClick={() => setShowPanel(false)} />
+						</div>
 					</div>
 
 					<div className="edit-panel_content glassmorphism">
