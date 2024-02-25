@@ -48,7 +48,7 @@ export const textures = [
 			aoMap: "./textures/earth/RammedEarth006_AO_2K_METALNESS.png",
 		},
 		avatar: "./textures/earth/clay.png",
-		current: true,
+		current: false,
 	},
 	{
 		id: "golden",
@@ -71,7 +71,7 @@ export const textures = [
 			aoMap: "./textures/metalic/Metal_006_ambientOcclusion.jpg",
 		},
 		avatar: "./textures/metalic/metal.svg",
-		current: false,
+		current: true,
 	},
 	{
 		id: "terrazzo",
