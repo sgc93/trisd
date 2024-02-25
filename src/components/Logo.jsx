@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import "./components.css";
 
-function Logo({ newClass, handleClick, url, width }) {
+function Logo({ newClass, handleClick, url, width, isLogoDraggable }) {
 	return (
 		<motion.div
-			drag
+			drag={isLogoDraggable}
 			dragElastic={1.18}
 			className={`logo ${newClass}`}
 			onClick={handleClick}
