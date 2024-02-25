@@ -3,6 +3,8 @@ import { useState } from "react";
 import { GrPowerReset } from "react-icons/gr";
 import { IoIosArrowDown, IoMdClose } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
+import { useSnapshot } from "valtio";
+import proxyState from "../proxyStore/proxy";
 import ColorPicker from "./ColorPicker";
 
 function EditPanel({
@@ -27,6 +29,8 @@ function EditPanel({
 	const [editLogo, setEditLogo] = useState(false);
 	const [editText, setEditText] = useState(false);
 	const [editBtn, setEditBtn] = useState(false);
+
+	const snap = useSnapshot(proxyState);
 
 	function handleOpeningPanel() {
 		setShowPanel(true);
@@ -213,7 +217,9 @@ function EditPanel({
 												/>
 											</div>
 											<div>
-												<label htmlFor="btnContent">bg color: </label>
+												<label htmlFor="btnContent">
+													bg color: {snap.homeBtn}
+												</label>
 												<ColorPicker purpose={"editTab"} />
 											</div>
 										</div>
