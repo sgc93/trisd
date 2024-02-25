@@ -62,8 +62,8 @@ function EditPanel({
 					<div className="icons">
 						<DragIndicator showDragIndicator={showDragIndicator} />
 
-						<div className="close-btn">
-							<IoMdClose className="icon" onClick={() => closeEditPanel()} />
+						<div className="close-btn" onClick={() => closeEditPanel()}>
+							<IoMdClose className="icon" />
 						</div>
 					</div>
 
