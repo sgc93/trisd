@@ -21,6 +21,9 @@ function HomePage() {
 
 	const [btnText, setBtnText] = useState("try displaying");
 
+	const [isLogoDraggable, setIsLogoDraggable] = useState(true);
+	const [isContentDraggable, setIsContentDraggable] = useState(true);
+
 	function handleLogoUploading(e) {
 		const file = e.target.files[0];
 		try {
@@ -72,19 +75,32 @@ function HomePage() {
 		setBtnText("try displaying");
 	}
 
+	function handleLogoDraggable() {
+		setIsLogoDraggable((isLogoDraggable) => !isLogoDraggable);
+	}
+
+	function handleContentDraggable() {
+		setIsContentDraggable((isContentDraggable) => !isContentDraggable);
+	}
+
 	return (
 		snap.inHome && (
 			<section className="home">
 				{/* <div className="home-model">
 					<HomeCanvas />
 				</div> */}
-				<Logo url={logoUrl} width={logoWidth} />
+				<Logo
+					url={logoUrl}
+					width={logoWidth}
+					isLogoDraggable={isLogoDraggable}
+				/>
 				<HomeContent
 					largeText={largeText}
 					smallText={smallText}
 					largeSize={largeSize}
 					smallSize={smallSize}
 					btnText={btnText}
+					isContentDraggable={isContentDraggable}
 				/>
 				<EditPanel
 					newLogo={newLogo}
@@ -104,6 +120,10 @@ function HomePage() {
 					btnText={btnText}
 					updateBtnText={updateBtnText}
 					resetBtnChange={resetBtnChange}
+					isLogoDraggable={isLogoDraggable}
+					handleLogoDraggable={handleLogoDraggable}
+					isContentDraggable={isContentDraggable}
+					handleContentDraggable={handleContentDraggable}
 				/>
 			</section>
 		)
