@@ -7,11 +7,11 @@ import { useGLTF, useTexture } from "@react-three/drei";
 import { textures } from "../../config/constants";
 
 export function Model({ newTexture, props }) {
-	let texture;
 	const clay = useTexture(textures[0].texture);
 	const golden = useTexture(textures[1].texture);
 	const metalic = useTexture(textures[2].texture);
 	const terrazzo = useTexture(textures[3].texture);
+	let texture = metalic;
 	if (newTexture === "golden") {
 		texture = golden;
 	} else if (newTexture === "metalic") {
