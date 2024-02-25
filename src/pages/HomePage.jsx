@@ -1,5 +1,4 @@
-import { useState } from "react";
-import HomeCanvas from "../canvas/homeCanvas/HomeCanvas";
+import { useRef, useState } from "react";
 import EditPanel from "../components/EditPanel";
 import HomeContent from "../components/HomeContent";
 import Logo from "../components/Logo";
@@ -26,7 +25,11 @@ function HomePage() {
 	const [isLogoDraggable, setIsLogoDraggable] = useState(true);
 	const [isContentDraggable, setIsContentDraggable] = useState(true);
 
+	const [onlyMaterial, setOnlyMaterial] = useState(false);
+
 	const [texture, setTexture] = useState("");
+
+	const canvas = useRef();
 
 	function handleLogoUploading(e) {
 		const file = e.target.files[0];
@@ -89,51 +92,74 @@ function HomePage() {
 
 	function changeMaterial(textureId) {
 		setTexture(textureId);
+		// handleShotScreen();
 	}
+
+	function hideHomeContents(state) {
+		setOnlyMaterial(state);
+	}
+
+	// function handleShotScreen() {
+	// 	if (!canvas.current) return;
+	// 	const imgUrl = canvas.current.toDataURL();
+	// 	const link = document.createElement("a");
+
+	// 	link.href = imgUrl;
+	// 	link.download = "trisD-screenshot.png";
+	// 	document.body.appendChild(link);
+	// 	link.click();
+	// }
 
 	return (
 		snap.inHome && (
 			<section className="home">
-				<div className="home-model">
-					<HomeCanvas newTexture={texture} />
-				</div>
-				<Logo
-					url={logoUrl}
-					width={logoWidth}
-					isLogoDraggable={isLogoDraggable}
+				{/* <div className="home-model">
+					<HomeCanvas newTexture={texture} canvas={canvas} />
+				</div> */}
+				<MaterialEditor
+					changeMaterial={changeMaterial}
+					hideHomeContents={hideHomeContents}
 				/>
-				<HomeContent
-					largeText={largeText}
-					smallText={smallText}
-					largeSize={largeSize}
-					smallSize={smallSize}
-					btnText={btnText}
-					isContentDraggable={isContentDraggable}
-				/>
-				<MaterialEditor changeMaterial={changeMaterial} />
-				<EditPanel
-					newLogo={newLogo}
-					logoWidth={logoWidth}
-					handleLogoUploading={handleLogoUploading}
-					handleLogoReset={handleLogoReset}
-					updateLogoWidth={updateLogoWidth}
-					largeSize={largeSize}
-					smallSize={smallSize}
-					largeText={largeText}
-					smallText={smallText}
-					updateLargerText={updateLargerText}
-					updateSmallerText={updateSmallerText}
-					updateLargeSize={updateLargeSize}
-					updateSmallSize={updateSmallSize}
-					resetTextChange={resetTextChange}
-					btnText={btnText}
-					updateBtnText={updateBtnText}
-					resetBtnChange={resetBtnChange}
-					isLogoDraggable={isLogoDraggable}
-					handleLogoDraggable={handleLogoDraggable}
-					isContentDraggable={isContentDraggable}
-					handleContentDraggable={handleContentDraggable}
-				/>
+				{!onlyMaterial && (
+					<>
+						<Logo
+							url={logoUrl}
+							width={logoWidth}
+							isLogoDraggable={isLogoDraggable}
+						/>
+						<HomeContent
+							largeText={largeText}
+							smallText={smallText}
+							largeSize={largeSize}
+							smallSize={smallSize}
+							btnText={btnText}
+							isContentDraggable={isContentDraggable}
+						/>
+						<EditPanel
+							newLogo={newLogo}
+							logoWidth={logoWidth}
+							handleLogoUploading={handleLogoUploading}
+							handleLogoReset={handleLogoReset}
+							updateLogoWidth={updateLogoWidth}
+							largeSize={largeSize}
+							smallSize={smallSize}
+							largeText={largeText}
+							smallText={smallText}
+							updateLargerText={updateLargerText}
+							updateSmallerText={updateSmallerText}
+							updateLargeSize={updateLargeSize}
+							updateSmallSize={updateSmallSize}
+							resetTextChange={resetTextChange}
+							btnText={btnText}
+							updateBtnText={updateBtnText}
+							resetBtnChange={resetBtnChange}
+							isLogoDraggable={isLogoDraggable}
+							handleLogoDraggable={handleLogoDraggable}
+							isContentDraggable={isContentDraggable}
+							handleContentDraggable={handleContentDraggable}
+						/>
+					</>
+				)}
 			</section>
 		)
 	);
