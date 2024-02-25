@@ -1,9 +1,7 @@
 import { useState } from "react";
+import DisplayCanvas from "./canvas/displayCanvas/DisplayCanvas";
 import Cursor from "./components/Cursor";
-import CustomizerPage from "./pages/CustomizerPage";
-import DisplayCanvas from "./pages/DisplayerCanvas";
 import DisplayPage from "./pages/DisplayerPage";
-import FeaturePage from "./pages/FeaturePage";
 import HomePage from "./pages/HomePage";
 
 function App() {
@@ -17,8 +15,6 @@ function App() {
 		<main className="app transition-all ease-in">
 			<Cursor cursorClass={cursorClass} />
 			<HomePage />
-			<CustomizerPage />
-			<FeaturePage changeCursorClass={changeCursorClass} />
 			<DisplayPage setGlbData={setGlbData} />
 			<DisplayCanvas glbData={glbData} />
 		</main>
