@@ -5,7 +5,7 @@ import {
 	useTexture,
 } from "@react-three/drei";
 import { Model } from "./Jebena";
-function HomeModel() {
+function HomeModel({ newTexture }) {
 	const texture = useTexture({
 		map: "./textures/metalic/Metal_006_basecolor.jpg",
 		normalMap: "./textures/metalic/Metal_006_normal.jpg",
@@ -16,7 +16,7 @@ function HomeModel() {
 	return (
 		<PresentationControls speed={1.5} global polar={[-0.1, Math.PI / 4.5]}>
 			<Stage environment={"city"} intensity={1} castShadow={false}>
-				<Model />
+				<Model newTexture={newTexture} />
 			</Stage>
 			<mesh rotation={[-Math.PI / 2.07, 0, Math.PI]} position={[0, 0, -35]}>
 				<planeGeometry args={[170, 170]} />
