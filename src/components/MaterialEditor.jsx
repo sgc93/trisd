@@ -8,7 +8,21 @@ import "./components.css";
 function MaterialEditor({ changeMaterial }) {
 	const [showDragIndicator, setShowDragIndicator] = useState(false);
 	const [textureName, setTextureName] = useState("");
+	const [textureList, setTextureList] = useState(textures);
 	const snap = useSnapshot(homeProxy);
+
+	function circleCurrentMaterial(id) {
+		const newLlist = textureList.filter((texture) => {
+			if (texture.id === id) {
+				texture.current = true;
+				return texture;
+			} else {
+				texture.current = false;
+				return texture;
+			}
+		});
+		setTextureList((textureList) => newLlist);
+	}
 
 	return (
 		snap.showMaterials && (
@@ -31,19 +45,25 @@ function MaterialEditor({ changeMaterial }) {
 					{textureName ? textureName : ""} Texture
 				</span>
 				<div>
-					{textures.map((texture) => {
-						return (
-							<div
-								key={texture.id}
-								className="material-golden texture"
-								onClick={() => changeMaterial(texture.id)}
-								onMouseEnter={() => setTextureName(texture.id)}
-								onMouseLeave={() => setTextureName("")}
-							>
-								<img src={texture.avatar} alt={texture.id} />
-							</div>
-						);
-					})}
+					{textureList &&
+						textureList.map((texture) => {
+							return (
+								<div
+									key={texture.id}
+									className={`texture ${
+										texture.current ? "texture-current" : ""
+									}`}
+									onClick={() => {
+										changeMaterial(texture.id);
+										circleCurrentMaterial(texture.id);
+									}}
+									onMouseEnter={() => setTextureName(texture.id)}
+									onMouseLeave={() => setTextureName("")}
+								>
+									<img src={texture.avatar} alt={texture.id} />
+								</div>
+							);
+						})}
 				</div>
 				<DragIndicator showDragIndicator={showDragIndicator} />
 			</motion.div>
