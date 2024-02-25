@@ -24,6 +24,7 @@ function EditPanel({
 	updateSmallSize,
 	btnText,
 	updateBtnText,
+	resetBtnChange,
 }) {
 	const [showPanel, setShowPanel] = useState(false);
 	const [editLogo, setEditLogo] = useState(false);
@@ -225,7 +226,7 @@ function EditPanel({
 										</div>
 
 										{editBtn && (
-											<button onClick={resetTextChange}>
+											<button onClick={resetBtnChange}>
 												<GrPowerReset className="icon icon-small" />
 											</button>
 										)}

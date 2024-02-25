@@ -67,6 +67,11 @@ function HomePage() {
 		setBtnText(e.target.value);
 	}
 
+	function resetBtnChange() {
+		proxyState.homeBtn = "#484848";
+		setBtnText("try displaying");
+	}
+
 	return (
 		snap.inHome && (
 			<section className="home">
@@ -98,6 +103,7 @@ function HomePage() {
 					resetTextChange={resetTextChange}
 					btnText={btnText}
 					updateBtnText={updateBtnText}
+					resetBtnChange={resetBtnChange}
 				/>
 			</section>
 		)
