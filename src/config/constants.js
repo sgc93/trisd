@@ -39,13 +39,24 @@ export const DecalTypes = {
 
 export const textures = [
 	{
+		id: "clay",
+		texture: {
+			map: "./textures/earth/RammedEarth006_COL_2K_METALNESS.png",
+			normalMap: "./textures/earth/RammedEarth006_NRM_2K_METALNESS.png",
+			roughnessMap:
+				"./textures/earth/RammedEarth006_ROUGHNESS_2K_METALNESS.png",
+			aoMap: "./textures/earth/RammedEarth006_AO_2K_METALNESS.png",
+		},
+		avatar: "./textures/earth/clay.png",
+	},
+	{
 		id: "golden",
 		texture: {
 			map: "./textures/golden/MetalGoldPaint002_COL_2K_METALNESS.png",
 			normalMap: "./textures/golden/MetalGoldPaint002_NRM_2K_METALNESS.png",
 			roughnessMap:
 				"./textures/golden/MetalGoldPaint002_ROUGHNESS_2K_METALNESS.png",
-			aoMap: "./textures/golden/MetalGoldPaint002_METALNESS_2K_METALNESS.png",
+			dispMap: "./textures/golden/MetalGoldPaint002_DISP_2K_METALNESS.png",
 		},
 		avatar: "./textures/golden/golden.svg",
 	},
@@ -58,17 +69,6 @@ export const textures = [
 			aoMap: "./textures/metalic/Metal_006_ambientOcclusion.jpg",
 		},
 		avatar: "./textures/metalic/metal.svg",
-	},
-	{
-		id: "clay",
-		texture: {
-			map: "./textures/earth/RammedEarth006_COL_2K_METALNESS.png",
-			normalMap: "./textures/earth/RammedEarth006_NRM_2K_METALNESS.png",
-			roughnessMap:
-				"./textures/earth/RammedEarth006_ROUGHNESS_2K_METALNESS.png",
-			aoMap: "./textures/earth/RammedEarth006_METALNESS_2K_METALNESS.png",
-		},
-		avatar: "./textures/earth/clay.png",
 	},
 	{
 		id: "terrazzo",
