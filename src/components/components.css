@@ -88,9 +88,10 @@
 .edit-panel_content {
 	display: flex;
 	flex-direction: column;
+	gap: 0.2rem;
 
-	max-height: 30rem;
 	width: 15rem;
+	max-height: 30rem;
 	border-radius: 1.2rem;
 
 	padding: 0.8rem;
@@ -125,15 +126,10 @@
 	border-radius: 0.4rem;
 }
 
-.edit-logo {
-	width: 100%;
-	overflow: hidden;
-}
-
 .edit-tab {
-	width: 100%;
 	background: var(--color-border2);
-	border-radius: 1.2rem;
+	border-bottom-left-radius: 1.2rem;
+	border-bottom-right-radius: 1.2rem;
 
 	display: flex;
 	flex-direction: column;
