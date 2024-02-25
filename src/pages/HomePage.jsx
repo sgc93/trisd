@@ -79,6 +79,7 @@ function HomePage() {
 					smallText={smallText}
 					largeSize={largeSize}
 					smallSize={smallSize}
+					btnText={btnText}
 				/>
 				<EditPanel
 					newLogo={newLogo}
