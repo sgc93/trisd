@@ -307,6 +307,10 @@
 	justify-content: center;
 }
 
+.texture-current img {
+	box-shadow: 0rem 0rem 1rem 0.2rem var(--color-text-secondary);
+}
+
 .texture:first-child {
 	border-left: 3px solid var(--color-border2);
 }
@@ -323,6 +327,7 @@
 .texture img {
 	opacity: 0.6;
 	transition: 0.5s;
+	border-radius: 50%;
 }
 
 .texture img:hover {
