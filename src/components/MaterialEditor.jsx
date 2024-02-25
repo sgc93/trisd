@@ -9,7 +9,7 @@ function MaterialEditor({ changeMaterial }) {
 					<div
 						key={texture.id}
 						className="material-golden texture"
-						onClick={() => changeMaterial(texture.texture, texture.id)}
+						onClick={() => changeMaterial(texture.id)}
 					>
 						<img src={texture.avatar} alt={texture.id} />
 					</div>
