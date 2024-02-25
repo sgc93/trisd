@@ -3,6 +3,7 @@ import { useState } from "react";
 import { GrPowerReset } from "react-icons/gr";
 import { IoIosArrowDown, IoMdClose } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
+import ColorPicker from "./ColorPicker";
 
 function EditPanel({
 	newLogo,
@@ -19,11 +20,13 @@ function EditPanel({
 	resetTextChange,
 	updateLargeSize,
 	updateSmallSize,
+	btnText,
+	updateBtnText,
 }) {
 	const [showPanel, setShowPanel] = useState(false);
 	const [editLogo, setEditLogo] = useState(false);
 	const [editText, setEditText] = useState(false);
-	const [editButton, setEditButton] = useState(false);
+	const [editBtn, setEditBtn] = useState(false);
 
 	function handleOpeningPanel() {
 		setShowPanel(true);
@@ -167,6 +170,55 @@ function EditPanel({
 										</div>
 
 										{editText && (
+											<button onClick={resetTextChange}>
+												<GrPowerReset className="icon icon-small" />
+											</button>
+										)}
+									</div>
+								</div>
+							)}
+						</div>
+						<div className="edit-btn">
+							<div
+								className="tab"
+								style={
+									editBtn
+										? {
+												borderBottomRightRadius: "0",
+												borderBottomLeftRadius: "0",
+										  }
+										: {}
+								}
+								onClick={() => setEditBtn((editBtn) => !editBtn)}
+							>
+								<span>customize button</span>
+								<IoIosArrowDown
+									className={`icon icon-small ${
+										editBtn ? "icon-rotate-x" : ""
+									}`}
+								/>
+							</div>
+							{editBtn && (
+								<div className="edit-tab">
+									<div className="edit-tab-btn">
+										<div className="edit-btn-text bntText">
+											<div>
+												<label htmlFor="btnContent">content: </label>
+												<input
+													id="btnContent"
+													type="text"
+													value={btnText}
+													onChange={updateBtnText}
+													placeholder="btn content.."
+												/>
+											</div>
+											<div>
+												<label htmlFor="btnContent">bg color: </label>
+												<ColorPicker purpose={"editTab"} />
+											</div>
+										</div>
+
+										{editBtn && (
 											<button onClick={resetTextChange}>
 												<GrPowerReset className="icon icon-small" />
 											</button>
