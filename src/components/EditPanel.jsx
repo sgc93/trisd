@@ -23,6 +23,7 @@ function EditPanel({
 	const [showPanel, setShowPanel] = useState(false);
 	const [editLogo, setEditLogo] = useState(false);
 	const [editText, setEditText] = useState(false);
+	const [editButton, setEditButton] = useState(false);
 
 	function handleOpeningPanel() {
 		setShowPanel(true);
@@ -40,6 +41,14 @@ function EditPanel({
 						<div className="edit-logo">
 							<div
 								className="tab"
+								style={
+									editLogo
+										? {
+												borderBottomRightRadius: "0",
+												borderBottomLeftRadius: "0",
+										  }
+										: {}
+								}
 								onClick={() => setEditLogo((editLogo) => !editLogo)}
 							>
 								<span>change and edit logo</span>
@@ -91,6 +100,14 @@ function EditPanel({
 						<div className="edit-text">
 							<div
 								className="tab"
+								style={
+									editText
+										? {
+												borderBottomRightRadius: "0",
+												borderBottomLeftRadius: "0",
+										  }
+										: {}
+								}
 								onClick={() => setEditText((editText) => !editText)}
 							>
 								<span>change and edit texts</span>
@@ -157,14 +174,6 @@ function EditPanel({
 									</div>
 								</div>
 							)}
-						</div>
-						<div className="tab edit-btn">
-							<span>changeLogo</span>
-							<IoIosArrowDown className="icon icon-small" />
-						</div>
-						<div className="tab edit-them">
-							<span>changeLogo</span>
-							<IoIosArrowDown className="icon icon-small" />
 						</div>
 					</div>
 				</motion.div>
