@@ -1,7 +1,10 @@
+import { motion } from "framer-motion";
+import { useState } from "react";
 import { useSnapshot } from "valtio";
 import { getContrastingColor } from "../config/helpers";
 import proxyState from "../proxyStore/proxy";
 import CustomBtn from "./CustomBtn";
+import DragIndicator from "./DragIndicator";
 import "./components.css";
 
 function HomeContent({ largeText, smallText, largeSize, smallSize, btnText }) {
@@ -10,27 +13,37 @@ function HomeContent({ largeText, smallText, largeSize, smallSize, btnText }) {
 		backgroundColor: snap.homeBtn,
 		color: getContrastingColor(snap.homeBtn),
 	};
+	const [showDragIndicator, setShowDragIndicator] = useState(false);
 	return (
-		<div className="home-content">
-			<div className="title-1" style={{ fontSize: `${largeSize}rem` }}>
-				{" "}
-				{largeText}
+		<motion.div
+			className="home-content"
+			onMouseEnter={() => setShowDragIndicator(true)}
+			onMouseLeave={() => setShowDragIndicator(false)}
+			drag
+			dragElastic={1.18}
+		>
+			<div>
+				<div className="title-1" style={{ fontSize: `${largeSize}rem` }}>
+					{" "}
+					{largeText}
+				</div>
+				<div className="text-2" style={{ fontSize: `${smallSize}rem` }}>
+					{smallText}
+				</div>
+				<CustomBtn
+					type={"filled"}
+					title={btnText}
+					handleClick={() => {
+						proxyState.inHome = false;
+						proxyState.inDisplayer = true;
+						console.log(proxyState);
+					}}
+					btnText={btnText}
+					customStyles={customStyle}
+				/>
 			</div>
-			<div className="text-2" style={{ fontSize: `${smallSize}rem` }}>
-				{smallText}
-			</div>
-			<CustomBtn
-				type={"filled"}
-				title={btnText}
-				handleClick={() => {
-					proxyState.inHome = false;
-					proxyState.inDisplayer = true;
-					console.log(proxyState);
-				}}
-				btnText={btnText}
-				customStyles={customStyle}
-			/>
-		</div>
+			<DragIndicator showDragIndicator={showDragIndicator} />
+		</motion.div>
 	);
 }
 
