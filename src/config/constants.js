@@ -37,18 +37,48 @@ export const DecalTypes = {
 	},
 };
 
-export const textures = {
-	goldenTexture: {
-		map: "./textures/golden/MetalGoldPaint002_COL_2K_METALNESS.png",
-		normalMap: "./textures/golden/MetalGoldPaint002_NRM_2K_METALNESS.png",
-		roughnessMap:
-			"./textures/golden/MetalGoldPaint002_ROUGHNESS_2K_METALNESS.png",
-		aoMap: "./textures/golden/MetalGoldPaint002_METALNESS_2K_METALNESS.png",
+export const textures = [
+	{
+		id: "golden",
+		texture: {
+			map: "./textures/golden/MetalGoldPaint002_COL_2K_METALNESS.png",
+			normalMap: "./textures/golden/MetalGoldPaint002_NRM_2K_METALNESS.png",
+			roughnessMap:
+				"./textures/golden/MetalGoldPaint002_ROUGHNESS_2K_METALNESS.png",
+			aoMap: "./textures/golden/MetalGoldPaint002_METALNESS_2K_METALNESS.png",
+		},
+		avatar: "./textures/golden/golden.svg",
 	},
-	metalicTexture: {
-		map: "./textures/metalic/Metal_006_basecolor.jpg",
-		normalMap: "./textures/metalic/Metal_006_normal.jpg",
-		roughnessMap: "./textures/metalic/Metal_006_roughness.jpg",
-		aoMap: "./textures/metalic/Metal_006_ambientOcclusion.jpg",
+	{
+		id: "metalic",
+		texture: {
+			map: "./textures/metalic/Metal_006_basecolor.jpg",
+			normalMap: "./textures/metalic/Metal_006_normal.jpg",
+			roughnessMap: "./textures/metalic/Metal_006_roughness.jpg",
+			aoMap: "./textures/metalic/Metal_006_ambientOcclusion.jpg",
+		},
+		avatar: "./textures/metalic/metal.svg",
 	},
-};
+	{
+		id: "clay",
+		texture: {
+			map: "./textures/earth/RammedEarth006_COL_2K_METALNESS.png",
+			normalMap: "./textures/earth/RammedEarth006_NRM_2K_METALNESS.png",
+			roughnessMap:
+				"./textures/earth/RammedEarth006_ROUGHNESS_2K_METALNESS.png",
+			aoMap: "./textures/earth/RammedEarth006_METALNESS_2K_METALNESS.png",
+		},
+		avatar: "./textures/earth/clay.png",
+	},
+	{
+		id: "terrazzo",
+		texture: {
+			map: "./textures/terrazzoSlab/TerrazzoSlab028_COL_2K_METALNESS.png",
+			normalMap: "./textures/terrazzoSlab/TerrazzoSlab028_NRM_2K_METALNESS.png",
+			roughnessMap:
+				"./textures/terrazzoSlab/TerrazzoSlab028_ROUGHNESS_2K_METALNESS.png",
+			aoMap: "./textures/terrazzoSlab/TerrazzoSlab028_AO_2K_METALNESS.png",
+		},
+		avatar: "./textures/terrazzoSlab/terrazzo.png",
+	},
+];
