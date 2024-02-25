@@ -35,3 +35,162 @@
 	width: 100%;
 	height: 100%;
 }
+
+/* display page */
+
+.display-page {
+	position: relative;
+
+	padding: 3rem;
+
+	height: 100vh;
+	width: 100vw;
+	background-color: var(--color-bg-primary);
+}
+
+.display-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 5rem;
+
+	margin-top: 5rem;
+
+	color: var(--color-text-primary);
+}
+
+.display-content_text {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.display-content_text h1 {
+	font-size: 4rem;
+	font-weight: 100;
+	letter-spacing: 4.1rem;
+}
+
+.display-content_text h4 {
+	letter-spacing: 1rem;
+	color: #484848;
+	font-weight: 600;
+	font-size: 1.1rem;
+}
+
+.uploader {
+	display: flex;
+	align-items: center;
+	gap: 6rem;
+}
+
+.section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+}
+
+.drag-uploader {
+	border-radius: 1.2rem;
+	width: 27rem;
+}
+
+.dropZone {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 18rem;
+	width: 100%;
+}
+
+.dropZone h4 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+
+	border: 3px dashed var(--color-text-secondary);
+
+	width: 90%;
+	height: 90%;
+	padding: 0.5rem 1rem;
+}
+
+.dragZone h4 span:first-child {
+	color: var(--color-text-secondary2);
+}
+
+.dropZone h4 span:nth-child(2) {
+	color: var(--color-text-secondary3);
+	font-size: 0.9rem;
+	text-align: center;
+}
+
+.dropZone h4 span:nth-child(3) {
+	color: #898989;
+}
+
+.input-uploader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 20rem;
+	height: 18rem;
+}
+
+.display-section_file {
+	padding: 1rem 2rem;
+	border: 2px solid var(--color-border2);
+	border-radius: 1rem;
+
+	width: 100%;
+	text-align: center;
+}
+
+.display-section_file label {
+	opacity: 0.7;
+	transition: 0.4s;
+}
+
+.display-section_file label:hover {
+	opacity: 1;
+}
+
+.display-section_fileName {
+	color: var(--color-text-secondary);
+	font-size: 1.2rem;
+	font-weight: 200;
+}
+
+.animate {
+	color: red;
+	animation-name: animate;
+	animation-duration: 0.3s;
+	animation-iteration-count: calc(3);
+}
+
+@keyframes animate {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+}
+
+.input-uploader_btns,
+.controller-btns {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2rem;
+
+	width: 100%;
+}
+
+.input-uploader_btns button {
+	padding: 0.5rem 2rem;
+}
