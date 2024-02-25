@@ -7,7 +7,14 @@ import CustomBtn from "./CustomBtn";
 import DragIndicator from "./DragIndicator";
 import "./components.css";
 
-function HomeContent({ largeText, smallText, largeSize, smallSize, btnText }) {
+function HomeContent({
+	largeText,
+	smallText,
+	largeSize,
+	smallSize,
+	btnText,
+	isContentDraggable,
+}) {
 	const snap = useSnapshot(proxyState);
 	const customStyle = {
 		backgroundColor: snap.homeBtn,
@@ -19,7 +26,7 @@ function HomeContent({ largeText, smallText, largeSize, smallSize, btnText }) {
 			className="home-content"
 			onMouseEnter={() => setShowDragIndicator(true)}
 			onMouseLeave={() => setShowDragIndicator(false)}
-			drag
+			drag={isContentDraggable}
 			dragElastic={1.18}
 		>
 			<div>
