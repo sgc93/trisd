@@ -92,7 +92,7 @@
 	margin-bottom: 1rem;
 }
 
-.edit-panel_box > div {
+.edit-panel_box .icons {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -247,6 +247,18 @@
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
+}
+
+/* toggler  */
+.toggler {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+}
+
+.toggler span {
+	font-weight: 200;
+	font-size: 12px;
 }
 
 /*CustomBtn */
