@@ -1,11 +1,15 @@
 import { useSnapshot } from "valtio";
+import { getContrastingColor } from "../config/helpers";
 import proxyState from "../proxyStore/proxy";
 import CustomBtn from "./CustomBtn";
 import "./components.css";
 
 function HomeContent({ largeText, smallText, largeSize, smallSize, btnText }) {
 	const snap = useSnapshot(proxyState);
-	const customStyle = { backgroundColor: snap.homeBtn };
+	const customStyle = {
+		backgroundColor: snap.homeBtn,
+		color: getContrastingColor(snap.homeBtn),
+	};
 	return (
 		<div className="home-content">
 			<div className="title-1" style={{ fontSize: `${largeSize}rem` }}>
