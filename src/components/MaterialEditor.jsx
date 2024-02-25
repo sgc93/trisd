@@ -1,24 +1,20 @@
-import clayImg from "../../public/textures/earth/clay.png";
-import goldenImg from "../../public/textures/golden/golden.svg";
-import metalImg from "../../public/textures/metalic/metal.svg";
-import terrazzoImg from "../../public/textures/terrazoSlab/terrazzo.png";
+import { textures } from "../config/constants";
 import "./components.css";
 
 function MaterialEditor({ changeMaterial }) {
 	return (
 		<div className="material-editor">
-			<div className="material-golden texture">
-				<img src={metalImg} alt="metalic" />
-			</div>
-			<div className="material-golden texture">
-				<img src={goldenImg} alt="golden" />
-			</div>
-			<div className="material-golden texture">
-				<img src={clayImg} alt="golden" />
-			</div>
-			<div className="material-golden texture">
-				<img src={terrazzoImg} alt="golden" />
-			</div>
+			{textures.map((texture) => {
+				return (
+					<div
+						key={texture.id}
+						className="material-golden texture"
+						onClick={() => changeMaterial(texture.texture, texture.id)}
+					>
+						<img src={texture.avatar} alt={texture.id} />
+					</div>
+				);
+			})}
 		</div>
 	);
 }
