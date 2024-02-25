@@ -25,6 +25,8 @@ function HomePage() {
 	const [isLogoDraggable, setIsLogoDraggable] = useState(true);
 	const [isContentDraggable, setIsContentDraggable] = useState(true);
 
+	const [texture, setTexture] = useState({});
+
 	function handleLogoUploading(e) {
 		const file = e.target.files[0];
 		try {
@@ -84,6 +86,11 @@ function HomePage() {
 		setIsContentDraggable((isContentDraggable) => !isContentDraggable);
 	}
 
+	function changeMaterial(newTexture, textureId) {
+		setTexture((texture) => newTexture);
+		console.log(`texture changed to ${textureId} successfully`);
+	}
+
 	return (
 		snap.inHome && (
 			<section className="home">
@@ -103,7 +110,7 @@ function HomePage() {
 					btnText={btnText}
 					isContentDraggable={isContentDraggable}
 				/>
-				<MaterialEditor />
+				<MaterialEditor changeMaterial={changeMaterial} />
 				<EditPanel
 					newLogo={newLogo}
 					logoWidth={logoWidth}
