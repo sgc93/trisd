@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { FaToggleOff, FaToggleOn } from "react-icons/fa6";
 import { GrPowerReset } from "react-icons/gr";
 import { IoIosArrowDown, IoMdClose } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
@@ -26,6 +27,10 @@ function EditPanel({
 	btnText,
 	updateBtnText,
 	resetBtnChange,
+	isLogoDraggable,
+	handleLogoDraggable,
+	isContentDraggable,
+	handleContentDraggable,
 }) {
 	const [showPanel, setShowPanel] = useState(false);
 	const [editLogo, setEditLogo] = useState(false);
@@ -48,7 +53,7 @@ function EditPanel({
 		>
 			{showPanel && (
 				<motion.div className="edit-panel_box" drag dragElastic={1.18}>
-					<div>
+					<div className="icons">
 						<DragIndicator showDragIndicator={showDragIndicator} />
 
 						<div className="close-btn">
@@ -79,6 +84,17 @@ function EditPanel({
 							</div>
 							{editLogo && (
 								<div className="edit-tab">
+									<div
+										className="toggler"
+										onClick={() => handleLogoDraggable()}
+									>
+										{isLogoDraggable ? (
+											<FaToggleOn className="toggle_icon on" />
+										) : (
+											<FaToggleOff className="toggle_icon" />
+										)}
+										<span>Disable Logo Draggable</span>
+									</div>
 									<div className="edit-tab-file">
 										<input
 											type="file"
@@ -139,6 +155,17 @@ function EditPanel({
 							{editText && (
 								<div className="edit-tab">
 									<div className="edit-tab-text">
+										<div
+											className="toggler"
+											onClick={() => handleContentDraggable()}
+										>
+											{isContentDraggable ? (
+												<FaToggleOn className="toggle_icon on" />
+											) : (
+												<FaToggleOff className="toggle_icon" />
+											)}
+											<span>Disable Content Draggable</span>
+										</div>
 										<div className="edit-text-large text">
 											<div>
 												<label htmlFor="largeText">large: </label>
