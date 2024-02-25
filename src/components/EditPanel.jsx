@@ -5,7 +5,7 @@ import { GrPowerReset } from "react-icons/gr";
 import { IoIosArrowDown, IoMdClose } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
 import { useSnapshot } from "valtio";
-import proxyState from "../proxyStore/proxy";
+import proxyState, { homeProxy } from "../proxyStore/proxy";
 import ColorPicker from "./ColorPicker";
 import DragIndicator from "./DragIndicator";
 
@@ -32,7 +32,6 @@ function EditPanel({
 	isContentDraggable,
 	handleContentDraggable,
 }) {
-	const [showPanel, setShowPanel] = useState(false);
 	const [editLogo, setEditLogo] = useState(false);
 	const [editText, setEditText] = useState(false);
 	const [editBtn, setEditBtn] = useState(false);
@@ -40,9 +39,16 @@ function EditPanel({
 	const [showDragIndicator, setShowDragIndicator] = useState(false);
 
 	const snap = useSnapshot(proxyState);
+	const homeSnap = useSnapshot(homeProxy);
 
-	function handleOpeningPanel() {
-		setShowPanel(true);
+	function openEditPanel() {
+		homeProxy.showMaterials = false;
+		homeProxy.showEditPanel = true;
+	}
+
+	function closeEditPanel() {
+		homeProxy.showMaterials = true;
+		homeProxy.showEditPanel = false;
 	}
 
 	return (
@@ -51,13 +57,13 @@ function EditPanel({
 			onMouseEnter={() => setShowDragIndicator(true)}
 			onMouseLeave={() => setShowDragIndicator(false)}
 		>
-			{showPanel && (
+			{homeSnap.showEditPanel && (
 				<motion.div className="edit-panel_box" drag dragElastic={1.18}>
 					<div className="icons">
 						<DragIndicator showDragIndicator={showDragIndicator} />
 
 						<div className="close-btn">
-							<IoMdClose className="icon" onClick={() => setShowPanel(false)} />
+							<IoMdClose className="icon" onClick={() => closeEditPanel()} />
 						</div>
 					</div>
 
@@ -275,8 +281,8 @@ function EditPanel({
 					</div>
 				</motion.div>
 			)}
-			{!showPanel && (
-				<div className="edit-panel_btn" onClick={() => handleOpeningPanel()}>
+			{!homeSnap.showEditPanel && (
+				<div className="edit-panel_btn" onClick={() => openEditPanel()}>
 					<span className="glassmorphism">customize this page</span>
 					<MdEdit className="icon icon-large icon-rotate-y" />
 				</div>
