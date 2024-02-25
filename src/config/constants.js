@@ -48,6 +48,7 @@ export const textures = [
 			aoMap: "./textures/earth/RammedEarth006_AO_2K_METALNESS.png",
 		},
 		avatar: "./textures/earth/clay.png",
+		current: true,
 	},
 	{
 		id: "golden",
@@ -59,6 +60,7 @@ export const textures = [
 			dispMap: "./textures/golden/MetalGoldPaint002_DISP_2K_METALNESS.png",
 		},
 		avatar: "./textures/golden/golden.svg",
+		current: false,
 	},
 	{
 		id: "metalic",
@@ -69,6 +71,7 @@ export const textures = [
 			aoMap: "./textures/metalic/Metal_006_ambientOcclusion.jpg",
 		},
 		avatar: "./textures/metalic/metal.svg",
+		current: false,
 	},
 	{
 		id: "terrazzo",
@@ -80,5 +83,6 @@ export const textures = [
 			aoMap: "./textures/terrazzoSlab/TerrazzoSlab028_AO_2K_METALNESS.png",
 		},
 		avatar: "./textures/terrazzoSlab/terrazzo.png",
+		current: false,
 	},
 ];
