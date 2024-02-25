@@ -6,10 +6,10 @@ import { Suspense, useRef, useState } from "react";
 import { BiScreenshot } from "react-icons/bi";
 import { FaToggleOff, FaToggleOn } from "react-icons/fa6";
 import { IoIosColorPalette } from "react-icons/io";
-import { MdDragIndicator } from "react-icons/md";
 import { useSnapshot } from "valtio";
 import ColorPicker from "../components/ColorPicker";
 import CustomBtn from "../components/CustomBtn";
+import DragIndicator from "../components/DragIndicator";
 import Loading from "../components/Loading";
 import Logo from "../components/Logo";
 import proxyState from "../proxyStore/proxy";
@@ -138,12 +138,7 @@ function ModelController({
 					</div>
 				</div>
 			</div>
-			<MdDragIndicator
-				className="drag_indicator"
-				color="white"
-				size={23}
-				fillOpacity={showDragIndicator ? 0.4 : 0}
-			/>
+			<DragIndicator showDragIndicator={showDragIndicator} />
 		</motion.div>
 	);
 }
