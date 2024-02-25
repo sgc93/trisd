@@ -16,4 +16,9 @@ const proxyState = proxy({
 	fullDecal: "./threejs.png",
 });
 
+export const homeProxy = proxy({
+	showMaterials: true,
+	showEditPanel: false,
+});
+
 export default proxyState;
