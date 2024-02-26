@@ -19,10 +19,10 @@ TRISD has a single magor functionality:
    https://trisd.netlify.app/
 
 ## Screenshots
-<img src="https://github.com/sgc93/trisd/blob/main/public/sreenshots/homepage.png" alt="trisd_homepage" /> <br /> <br />
 <img src="https://github.com/sgc93/trisd/blob/main/public/sreenshots/intropage.png" alt="trisd_intropage" /> <br /> <br />
+<img src="https://github.com/sgc93/trisd/blob/main/public/sreenshots/homepage.png" alt="trisd_homepage" /> <br /> <br />
 <img src="https://github.com/sgc93/trisd/blob/main/public/sreenshots/uploadingpage.png" alt="trisd_uploadingpage" /> <br /> <br />
-<img src="https://github.com/sgc93/trisd/blob/main/public/sreenshots/displayingpage" alt="trisd_displayingpage" /> <br /> <br />
+<img src="https://github.com/sgc93/trisd/blob/main/public/sreenshots/displayer.png" alt="trisd_displayingpage" /> <br /> <br />
 
 ## Tech-Stack
 
