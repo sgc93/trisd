@@ -41,7 +41,7 @@ function MaterialEditor({ changeMaterial, changeTMaterial, style, type }) {
 		return (
 			<motion.div
 				className="material-editor"
-				style={type === "floor" ? { zIndex: 999, top: "3rem" } : {}}
+				style={type === "floor" ? { zIndex: 997, top: "3rem" } : {}}
 				drag
 				dragElastic={1.18}
 				onMouseEnter={() => {
