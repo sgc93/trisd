@@ -37,25 +37,7 @@ button {
 	--color-bg-btn: #484848;
 	--color-text-secondary2: #f9af01;
 	--color-text-secondary3: #f9af0166;
-}
-
-.cursor {
-	position: absolute;
-	z-index: 1000;
-	border-radius: 50%;
-
-	width: 1.2rem;
-	height: 1.2rem;
-}
-
-.def_cursor {
-	background-color: #9d71cbca;
-}
-
-.logo_cursor {
-	background-color: rgba(249, 187, 0, 0.573);
-	width: 3rem;
-	height: 3rem;
+	--color-bg-cursor: #ffffffda;
 }
 
 /* icon */
@@ -327,38 +309,6 @@ button {
 .screenshot-modal .img-container img {
 	max-width: 100%;
 	max-height: 100%;
-}
-
-.download-btn {
-	@apply w-14 h-14 flex justify-center items-center rounded-full glassmorphism cursor-pointer outline-none;
-}
-
-.editortabs-container {
-	@apply glassmorphism w-16 border-[2px] rounded-lg flex flex-col justify-center items-center ml-1 py-4 gap-4;
-}
-
-.filtertabs-container {
-	@apply absolute z-10 bottom-5 right-0 left-0 w-full flex justify-center items-center flex-wrap gap-4;
-}
-
-.aipicker-container {
-	@apply absolute left-full ml-3 glassmorphism p-3 w-[195px] h-[220px] rounded-md flex flex-col gap-4;
-}
-
-.aipicker-textarea {
-	@apply w-full bg-transparent text-sm border border-gray-300 p-2 outline-none flex-1;
-}
-
-.filepicker-container {
-	@apply absolute left-full ml-3 glassmorphism p-3 w-[195px] h-[220px] flex flex-col rounded-md;
-}
-
-.filepicker-label {
-	@apply border border-gray-300 py-1.5 px-2 rounded-md shadow-sm text-xs text-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 cursor-pointer w-fit;
-}
-
-.tab-btn {
-	@apply w-14 h-14 flex justify-center items-center cursor-pointer select-none;
 }
 
 .glassmorphism {
