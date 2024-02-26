@@ -5,7 +5,7 @@ import Logo from "../components/Logo";
 import proxyState from "../proxyStore/proxy";
 import "./pages.css";
 
-function DisplayPage({ setGlbData }) {
+function UploadPage({ setGlbData }) {
 	const snap = useSnapshot(proxyState);
 	const [fileName, setFileName] = useState("");
 	const [isReady, setIsReady] = useState(false);
@@ -174,4 +174,4 @@ function DisplayPage({ setGlbData }) {
 	);
 }
 
-export default DisplayPage;
+export default UploadPage;
