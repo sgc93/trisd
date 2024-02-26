@@ -3,6 +3,7 @@ import { useSnapshot } from "valtio";
 import DisplayCanvas from "../canvas/displayCanvas/DisplayCanvas";
 import ColorPicker from "../components/ColorPicker";
 import Logo from "../components/Logo";
+import MaterialEditor from "../components/MaterialEditor";
 import ModelController from "../components/ModelController";
 import proxyState from "../proxyStore/proxy";
 
@@ -17,6 +18,12 @@ function DisplayPage({ glbData }) {
 	const [screenshotImg, setScreenshotImg] = useState("");
 	const [displayModal, setDisplayModal] = useState(false);
 	const [isColorPicker, setIsColorPicker] = useState(false);
+	const [texture, setTexture] = useState();
+
+	function changeFloorMaterial(textureId) {
+		setTexture(textureId);
+	}
+
 	return (
 		snap.inCanvas && (
 			<div className="display-canvas_page">
@@ -50,8 +57,13 @@ function DisplayPage({ glbData }) {
 						</div>
 					</div>
 				)}
+				<MaterialEditor type={"floor"} changeTMaterial={changeFloorMaterial} />
 				<div className="display-canvas">
-					<DisplayCanvas controller={controller} glbData={glbData} />
+					<DisplayCanvas
+						controller={controller}
+						glbData={glbData}
+						texture={texture}
+					/>
 				</div>
 			</div>
 		)
