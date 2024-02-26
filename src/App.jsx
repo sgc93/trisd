@@ -9,7 +9,7 @@ function App() {
 
 	const [cursorClass, setCursorClass] = useState("def_cursor");
 	return (
-		<main className="app transition-all ease-in">
+		<main className="app transition-all ease-in relative">
 			<Cursor cursorClass={cursorClass} />
 			<HomePage />
 			<UploadPage setGlbData={setGlbData} />
