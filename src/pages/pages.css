@@ -1,3 +1,9 @@
+.intro {
+	width: 100vw;
+	height: 100vh;
+	background-color: var(--color-bg-primary);
+}
+
 .home {
 	position: relative;
 	width: 100vw;
