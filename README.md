@@ -24,8 +24,8 @@ TRISD has a single magor functionality:
 
 - React.js -- the only used front-end library
 - Three.js -- rendering and 3d model animating
-- React Three Fiber -- 
-- React Three Drei
+- React Three Fiber -- creating scene and it the interacting
+- React Three Drei -- built in 3d related components
 - Vite  ---  project creator
 - Tailwind CSS -- styling elements and components
 - Framer Motion  -- animating react components and elements
