@@ -1,5 +1,9 @@
 import { proxy } from "valtio";
 
+export const introProxy = proxy({
+	showBtn: false,
+});
+
 const proxyState = proxy({
 	inIntro: true,
 	inHome: true,
@@ -8,13 +12,9 @@ const proxyState = proxy({
 	inFeaturePage: false,
 	inMockup: false,
 	inCanvas: false,
-	color: "#EFBD48",
+
 	bg: "#101010",
 	homeBtn: "#484848",
-	isLogoTexture: true,
-	isFullTexture: false,
-	logoDecal: "./threejs.png",
-	fullDecal: "./threejs.png",
 });
 
 export const homeProxy = proxy({
