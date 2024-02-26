@@ -404,3 +404,61 @@
 	opacity: 1;
 	transform: translateX(0);
 }
+
+/* rendering loading */
+.render-loading_spinner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+
+	border-radius: 1.2rem;
+	padding: 2rem 4rem;
+
+	color: var(--color-text-primary);
+	text-transform: lowercase;
+
+	z-index: 997;
+}
+
+.render-loading_spinner .message {
+	font-size: 1.5rem;
+	font-weight: 200;
+}
+
+.render-loading_spinner .spinner {
+	background-color: var(--color-text-primary);
+	padding: 1.2rem;
+
+	animation-name: spine;
+	animation-duration: 1.5s;
+	animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	animation-iteration-count: infinite;
+	clip-path: polygon(
+		100% 57%,
+		68% 71%,
+		83% 99%,
+		21% 89%,
+		21% 45%,
+		31% 80%,
+		67% 89%,
+		51% 68%,
+		79% 55%,
+		18% 0
+	);
+}
+
+@keyframes spine {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
