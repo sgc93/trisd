@@ -5,6 +5,7 @@ Command: npx gltfjsx@6.2.16 public/jebena.glb
 
 import { useGLTF, useTexture } from "@react-three/drei";
 import { textures } from "../../config/constants";
+import proxyState from "../../proxyStore/proxy";
 
 export function Model({ newTexture, props }) {
 	const clay = useTexture(textures[0].texture);
@@ -26,6 +27,10 @@ export function Model({ newTexture, props }) {
 	}
 
 	const { nodes, materials } = useGLTF("/jebena.glb");
+	if (nodes) {
+		proxyState.inIntro = false;
+		proxyState.inHome = true;
+	}
 	return (
 		<group {...props}>
 			<mesh
