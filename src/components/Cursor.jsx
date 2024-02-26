@@ -1,21 +1,31 @@
 import { useEffect, useRef } from "react";
+import "./components.css";
 
 function Cursor({ cursorClass }) {
 	const cursor = useRef();
-	console.log(cursorClass);
+	const cursorBox = useRef();
 
 	useEffect(() => {
-		window.addEventListener("mousemove", (e) => {
+		function moveCursor(e) {
 			const cursorPosX = e.clientX;
 			const cursorPosY = e.clientY;
 
-			if (cursor.current !== null) {
+			if (cursor.current && cursorBox.current) {
 				cursor.current.style.left = `${cursorPosX}px`;
 				cursor.current.style.top = `${cursorPosY}px`;
+
+				cursorBox.current.style.left = `${cursorPosX + 20}px`;
+				cursorBox.current.style.top = `${cursorPosY + 20}px`;
 			}
-		});
+		}
+		window.addEventListener("mousemove", moveCursor);
 	});
-	return <div ref={cursor} className={`cursor ${cursorClass}`}></div>;
+	return (
+		<>
+			<div className="cursor-box" ref={cursorBox}></div>
+			<div ref={cursor} className={`cursor ${cursorClass}`}></div>
+		</>
+	);
 }
 
 export default Cursor;
