@@ -282,7 +282,6 @@
 .material-editor {
 	position: absolute;
 	right: 0;
-	bottom: 4rem;
 
 	width: 10rem;
 	margin: 0 0 3rem 0;
@@ -309,6 +308,10 @@
 
 .texture-current img {
 	box-shadow: 0rem 0rem 1rem 0.2rem var(--color-text-secondary);
+}
+
+.texture-current_floor img {
+	box-shadow: 0rem 0rem 1rem 0.2rem var(--color-text-primary);
 }
 
 .texture:first-child {
