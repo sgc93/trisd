@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import "./components.css";
 
 const pathStyle = {
@@ -7,31 +8,82 @@ const pathStyle = {
 	strokeLinejoin: "round",
 	strokeWidth: "8px",
 };
-
 const fill = { fill: "#fff" };
+
+const svgVariants = {
+	hidden: { rotate: -180 },
+	visible: {
+		rotate: 0,
+		transition: { duration: 1 },
+	},
+};
+
+const pathVariants = {
+	hidden: {
+		opacity: 0,
+		pathLength: 0,
+	},
+	visible: {
+		opacity: 1,
+		pathLength: 1,
+		transition: {
+			duration: 4,
+			ease: "easeInOut",
+		},
+	},
+};
+
+const textVariants = {
+	hidden: {
+		opacity: 0,
+	},
+	visible: {
+		opacity: 1,
+		transition: {
+			duration: 2,
+			delay: 4,
+		},
+	},
+};
+
+const ballVariants = {
+	hidden: {
+		opacity: 0,
+	},
+	visible: {
+		opacity: 1,
+		transition: {
+			duration: 2,
+			delay: 6,
+		},
+	},
+};
 
 function LogoSVG() {
 	return (
 		<div className="logo-svg">
-			<svg
-				// id="Layer_1"
-				// data-name="Layer 1"
-				// xmlns="http://www.w3.org/2000/svg"
+			<motion.svg
 				viewBox="420 0 1390.62 448.31"
+				variants={svgVariants}
+				initial="hidden"
+				animate="visible"
 			>
-				<path
+				<motion.path
+					variants={pathVariants}
 					d="m848.72,301.96c.11-9,3.89-150.5,3.89-150.5,3.19-196.63,263.83-196.57,267,0,3.23-196.65,263.81-196.57,267,0,0,0-3.79,141.49-3.89,150.49"
 					style={pathStyle}
 				/>
-				<path
+				<motion.path
+					variants={pathVariants}
 					d="m1262.34,61.96c43.95,0,60.16,46.6,24.1,78.06-36.07,31.46-.69,159.62,96.38,175.93,0,0-135.95-11.65-169.74-145.64-19.81-110.69,49.26-108.36,49.26-108.36Z"
 					style={pathStyle}
 				/>
-				<path
+				<motion.path
+					variants={pathVariants}
 					d="m968.83,61.96c-43.95,0-60.16,46.6-24.1,78.06,36.07,31.46.69,159.62-96.38,175.93,0,0,135.95-11.65,169.74-145.64,19.81-110.69-49.26-108.36-49.26-108.36Z"
 					style={pathStyle}
 				/>
-				<g>
+				<motion.g variants={textVariants}>
 					<path
 						d="m844.79,354.1v-5.52h48.8v5.52h-21.33v61.78h-6.15v-61.78h-21.33Z"
 						style={fill}
@@ -49,16 +101,18 @@ function LogoSVG() {
 						d="m1357.24,415.88h-19.72v-67.3c10.12.46,28.98-1.88,37.38,4.01,25.21,16.01,16.24,65.96-17.66,63.29Zm-13.57-5.52c22.27,1.41,39.32-2.07,39.44-28.3-.25-26.64-17.12-29.3-39.44-27.97v56.26Z"
 						style={fill}
 					/>
-				</g>
-				<path
+				</motion.g>
+				<motion.path
+					variants={ballVariants}
 					d="m999.85,103.21c-.14,36.93-62.1,36.92-62.23,0,.14-36.92,62.1-36.92,62.23,0Z"
 					style={fill}
 				/>
-				<path
+				<motion.path
+					variants={ballVariants}
 					d="m1292.13,103.21c-.14,36.93-62.1,36.92-62.23,0,.14-36.92,62.1-36.92,62.23,0Z"
 					style={fill}
 				/>
-			</svg>
+			</motion.svg>
 		</div>
 	);
 }
