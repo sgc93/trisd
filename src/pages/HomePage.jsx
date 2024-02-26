@@ -104,7 +104,8 @@ function HomePage() {
 	// }
 
 	return (
-		snap.inHome && (
+		snap.inHome &&
+		!snap.inDisplayer && (
 			<section className="home">
 				<div className="home-model">
 					<HomeCanvas newTexture={texture} />
