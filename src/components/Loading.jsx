@@ -1,12 +1,14 @@
 import "./components.css";
 
 function Loading({ message, type }) {
-	if (type === "notify") {
-		console.log("loading type: " + type);
+	const isNotify = type === "notify";
+	const isNotifyIntro = type === "notify-intro";
+
+	if (isNotify || isNotifyIntro) {
 		return (
-			<div className="notify-spinner">
+			<div className={`${isNotify ? "only-spinner" : "notify-intro"}`}>
 				<div className="only-spinner"></div>
-				<span>loading...</span>
+				<span>{message}</span>
 			</div>
 		);
 	}
