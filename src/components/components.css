@@ -1,3 +1,48 @@
+.cursor-box {
+	position: absolute;
+	z-index: 1000;
+
+	padding: 1rem;
+	background-color: var(--color-bg-cursor);
+
+	transition: 0.1s;
+	mix-blend-mode: difference;
+	clip-path: polygon(
+		100% 57%,
+		68% 71%,
+		83% 99%,
+		21% 89%,
+		21% 45%,
+		31% 80%,
+		67% 89%,
+		51% 68%,
+		79% 55%,
+		18% 0
+	);
+}
+
+.cursor {
+	mix-blend-mode: difference;
+
+	position: absolute;
+	z-index: 999;
+
+	border-radius: 50%;
+
+	width: 1rem;
+	height: 1rem;
+}
+
+.def_cursor {
+	background-color: var(--color-bg-cursor);
+}
+
+.logo_cursor {
+	background-color: rgba(249, 187, 0, 0.573);
+	width: 3rem;
+	height: 3rem;
+}
+
 /* Logo */
 
 .logo {
