@@ -24,6 +24,19 @@
 	font-weight: 150;
 }
 
+.intro-btn {
+	padding: 0.5rem 1rem;
+	border-radius: 0.7rem;
+	color: var(--color-text-secondary);
+	transition: color 0.4s;
+}
+
+.intro-btn:hover {
+	color: var(--color-text-primary);
+}
+
+/* home */
+
 .home {
 	position: relative;
 	width: 100vw;
