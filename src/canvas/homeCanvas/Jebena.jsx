@@ -10,7 +10,8 @@ export function Model({ newTexture, props }) {
 	const clay = useTexture(textures[0].texture);
 	const golden = useTexture(textures[1].texture);
 	const metalic = useTexture(textures[2].texture);
-	const terrazzo = useTexture(textures[3].texture);
+	const mosaic = useTexture(textures[3].texture);
+	const terrazzo = useTexture(textures[4].texture);
 	let texture = metalic;
 	if (newTexture === "golden") {
 		texture = golden;
@@ -18,6 +19,8 @@ export function Model({ newTexture, props }) {
 		texture = metalic;
 	} else if (newTexture === "clay") {
 		texture = clay;
+	} else if (newTexture === "mosaic") {
+		texture = mosaic;
 	} else if (newTexture === "terrazzo") {
 		texture = terrazzo;
 	}
