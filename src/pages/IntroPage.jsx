@@ -41,6 +41,10 @@ function IntroPage() {
 						initial="initial"
 						animate="animate"
 						className="intro-btn glassmorphism"
+						onClick={() => {
+							proxyState.inIntro = false;
+							proxyState.inHome = true;
+						}}
 					>
 						go to TRISD
 					</motion.button>
