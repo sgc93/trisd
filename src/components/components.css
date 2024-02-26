@@ -462,3 +462,60 @@
 		transform: rotate(360deg);
 	}
 }
+
+.notify-spinner {
+	position: absolute;
+	z-index: 997;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+}
+
+.notify-spinner span {
+	color: var(--color-text-primary);
+	font-weight: 100;
+	font-size: 10px;
+}
+
+.only-spinner {
+	background-color: var(--color-text-primary);
+	width: 2.2rem;
+	height: 2.2rem;
+
+	animation-name: fadeInOut;
+	animation-duration: 1s;
+	/* animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); */
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	clip-path: polygon(
+		100% 57%,
+		68% 71%,
+		83% 99%,
+		21% 89%,
+		21% 45%,
+		31% 80%,
+		67% 89%,
+		51% 68%,
+		79% 55%,
+		18% 0
+	);
+}
+
+@keyframes fadeInOut {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(0.5);
+	}
+
+	100% {
+		transform: scale(1.5);
+	}
+}
