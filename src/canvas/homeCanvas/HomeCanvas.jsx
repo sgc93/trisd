@@ -1,17 +1,18 @@
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
+import Loading from "../../components/Loading";
 import HomeModel from "./HomeModel";
 
 function HomeCanvas({ newTexture }) {
 	return (
-		<Canvas>
-			<color attach={"background"} args={["#101010"]} />
-			<fog attach={"fog"} args={["#101010", 5, 10]} />
+		<Suspense fallback={<Loading type={"notify"} />}>
+			<Canvas>
+				<color attach={"background"} args={["#101010"]} />
+				<fog attach={"fog"} args={["#101010", 5, 10]} />
 
-			<Suspense fallback={null}>
 				<HomeModel newTexture={newTexture} />
-			</Suspense>
-		</Canvas>
+			</Canvas>
+		</Suspense>
 	);
 }
 
