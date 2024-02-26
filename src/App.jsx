@@ -1,22 +1,19 @@
 import { useState } from "react";
-import DisplayCanvas from "./canvas/displayCanvas/DisplayCanvas";
 import Cursor from "./components/Cursor";
-import DisplayPage from "./pages/DisplayerPage";
+import DisplayPage from "./pages/DisplayPage";
 import HomePage from "./pages/HomePage";
+import UploadPage from "./pages/UploadPage";
 
 function App() {
 	const [glbData, setGlbData] = useState("./jebena.glb");
 
 	const [cursorClass, setCursorClass] = useState("def_cursor");
-	function changeCursorClass(newClass) {
-		setCursorClass(newClass);
-	}
 	return (
 		<main className="app transition-all ease-in">
 			<Cursor cursorClass={cursorClass} />
 			<HomePage />
-			<DisplayPage setGlbData={setGlbData} />
-			<DisplayCanvas glbData={glbData} />
+			<UploadPage setGlbData={setGlbData} />
+			<DisplayPage glbData={glbData} />
 		</main>
 	);
 }
