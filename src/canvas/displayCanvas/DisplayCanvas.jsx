@@ -6,7 +6,7 @@ import Loading from "../../components/Loading";
 import proxyState from "../../proxyStore/proxy";
 import DisplayModel from "./DisplayModel";
 
-function DisplayCanvas({ glbData, controller }) {
+function DisplayCanvas({ glbData, controller, texture }) {
 	const snap = useSnapshot(proxyState);
 	const { zoom, rotate } = controller;
 	const screenshot = useRef();
@@ -19,7 +19,11 @@ function DisplayCanvas({ glbData, controller }) {
 				<ambientLight intensity={1.5} />
 				<spotLight position={[10, 10, 10]} castShadow />
 				<OrbitControls enableZoom={zoom} enableRotate={rotate} />
-				<DisplayModel glbData={glbData} controller={controller} />
+				<DisplayModel
+					glbData={glbData}
+					controller={controller}
+					newTexture={texture}
+				/>
 			</Canvas>
 		</Suspense>
 	);
