@@ -1,7 +1,27 @@
 .intro {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
 	width: 100vw;
 	height: 100vh;
 	background-color: var(--color-bg-primary);
+}
+
+.intro-loading {
+	width: 20rem;
+	padding: 1rem 2rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.intro-loading span {
+	color: var(--color-text-secondary);
+	font-weight: 150;
 }
 
 .home {
