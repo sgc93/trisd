@@ -31,9 +31,6 @@
 
 	width: 1rem;
 	height: 1rem;
-}
-
-.def_cursor {
 	background-color: var(--color-bg-cursor);
 }
 
