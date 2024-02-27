@@ -1,5 +1,4 @@
 import { useState } from "react";
-import HomeCanvas from "../canvas/homeCanvas/HomeCanvas";
 import EditPanel from "../components/EditPanel";
 import HomeContent from "../components/HomeContent";
 import Logo from "../components/Logo";
@@ -89,27 +88,15 @@ function HomePage() {
 
 	function changeMaterial(textureId) {
 		setTexture(textureId);
-		// handleShotScreen();
 	}
-
-	// function handleShotScreen() {
-	// 	if (!canvas.current) return;
-	// 	const imgUrl = canvas.current.toDataURL();
-	// 	const link = document.createElement("a");
-
-	// 	link.href = imgUrl;
-	// 	link.download = "trisD-screenshot.png";
-	// 	document.body.appendChild(link);
-	// 	link.click();
-	// }
 
 	return (
 		snap.inHome &&
 		!snap.inDisplayer && (
 			<section className="home">
-				<div className="home-model">
+				{/* <div className="home-model">
 					<HomeCanvas newTexture={texture} />
-				</div>
+				</div> */}
 				<MaterialEditor changeMaterial={changeMaterial} />
 				<Logo
 					url={logoUrl}
