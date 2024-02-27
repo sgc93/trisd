@@ -110,67 +110,65 @@ function UploadPage({ setGlbData }) {
 	}
 
 	return (
-		snap.inDisplayer && (
-			<section className="display-page">
-				<Logo
-					handleClick={() => {
-						proxyState.inDisplayer = false;
-						proxyState.inHome = true;
-					}}
-				/>
-				<div className="display-content">
-					<div className="display-content_text">
-						<h1>TRISD [3D]</h1>
-						<h4>Upload Your 3D Model and See Though</h4>
-					</div>
-					<div className="uploader">
-						<div className="drag-uploader section glassmorphism">
-							<div
-								className="dropZone"
-								onDragEnter={handleDragEnter}
-								onDragLeave={handleDragLeave}
-								onDragOver={handleDragOver}
-								onDrop={handleFileDrop}
-							>
-								<h4>
-									<span>drag and drop your .glb file here</span>
-									<span>{status ? status : ""}</span>
-									<span>{isReady && fileName ? fileName : ""}</span>
-								</h4>
-							</div>
+		<section className="display-page">
+			<Logo
+				handleClick={() => {
+					proxyState.inDisplayer = false;
+					proxyState.inHome = true;
+				}}
+			/>
+			<div className="display-content">
+				<div className="display-content_text">
+					<h1>TRISD [3D]</h1>
+					<h4>Upload Your 3D Model and See Though</h4>
+				</div>
+				<div className="uploader">
+					<div className="drag-uploader section glassmorphism">
+						<div
+							className="dropZone"
+							onDragEnter={handleDragEnter}
+							onDragLeave={handleDragLeave}
+							onDragOver={handleDragOver}
+							onDrop={handleFileDrop}
+						>
+							<h4>
+								<span>drag and drop your .glb file here</span>
+								<span>{status ? status : ""}</span>
+								<span>{isReady && fileName ? fileName : ""}</span>
+							</h4>
 						</div>
-						<div className="input-uploader section">
-							<div className="display-section_file">
-								<input
-									type="file"
-									accept=".glb"
-									id="glb-loader"
-									onChange={handleFileUpload}
-								/>
-								<label htmlFor="glb-loader">
-									{fileName ? "Change File" : "upload .glb file"}
-								</label>
-							</div>
-							<div className="display-section_fileName" ref={animate}>
-								{fileName
-									? isReady
-										? fileName
-										: `${fileName} in not a glb file,try again!`
-									: "No file is selected"}
-							</div>
-							<div className="input-uploader_btns">
-								<CustomBtn type={"outline"} title={"Change File"} />
-								<CustomBtn
-									type={"filled"}
-									title={"Display"}
-									handleClick={handleDisplaying}
-								/>
-							</div>
+					</div>
+					<div className="input-uploader section">
+						<div className="display-section_file">
+							<input
+								type="file"
+								accept=".glb"
+								id="glb-loader"
+								onChange={handleFileUpload}
+							/>
+							<label htmlFor="glb-loader">
+								{fileName ? "Change File" : "upload .glb file"}
+							</label>
+						</div>
+						<div className="display-section_fileName" ref={animate}>
+							{fileName
+								? isReady
+									? fileName
+									: `${fileName} in not a glb file,try again!`
+								: "No file is selected"}
+						</div>
+						<div className="input-uploader_btns">
+							<CustomBtn type={"outline"} title={"Change File"} />
+							<CustomBtn
+								type={"filled"}
+								title={"Display"}
+								handleClick={handleDisplaying}
+							/>
 						</div>
 					</div>
 				</div>
-			</section>
-		)
+			</div>
+		</section>
 	);
 }
 
