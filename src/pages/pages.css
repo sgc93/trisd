@@ -1,3 +1,17 @@
+/* notification page */
+
+.notification-page {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 100vw;
+	height: 100vh;
+	background-color: var(--color-bg-primary);
+}
+
+/* intro page */
+
 .intro {
 	position: relative;
 	display: flex;
