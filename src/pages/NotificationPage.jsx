@@ -36,7 +36,7 @@ const btnVariants = {
 
 export default function NotificationPage() {
 	function handleClosingTab() {
-		window.close();
+		window.location.href = "https://github.com/sgc93/trisd/blob/main/README.md";
 	}
 	return (
 		<section className="notification-page">
@@ -59,7 +59,7 @@ export default function NotificationPage() {
 					className="close-tab-btn"
 					onClick={handleClosingTab}
 				>
-					close the app
+					close this tab | read more about TRISD
 				</motion.button>
 			</motion.div>
 		</section>
