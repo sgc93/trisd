@@ -22,10 +22,6 @@ const router = createBrowserRouter([
 		children: [
 			{
 				path: "/",
-				element: <NotificationPage />,
-			},
-			{
-				path: "/home",
 				element: <HomePage />,
 			},
 			{
@@ -41,18 +37,18 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+	const [inUpdateState] = useState(true);
 	const snap = useSnapshot(proxyState);
 	const [glbData, setGlbData] = useState("./jebena.glb");
 	const [cursorClass, setCursorClass] = useState("def_cursor");
 
 	return (
 		<main className="app transition-all ease-in relative">
-			<RouterProvider router={router} />
-			{/* <Cursor cursorClass={cursorClass} />
-			<IntroPage />
-			<HomePage />
-			<UploadPage setGlbData={setGlbData} />
-			<DisplayPage glbData={glbData} /> */}
+			{inUpdateState ? (
+				<NotificationPage />
+			) : (
+				<RouterProvider router={router} />
+			)}
 		</main>
 	);
 }
