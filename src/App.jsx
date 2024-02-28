@@ -45,7 +45,10 @@ function App() {
 	return (
 		<main className="app transition-all ease-in relative">
 			{inUpdateState ? (
-				<NotificationPage />
+				<>
+					<Cursor />
+					<NotificationPage />
+				</>
 			) : (
 				<RouterProvider router={router} />
 			)}
