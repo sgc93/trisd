@@ -2,10 +2,9 @@ import { useState } from "react";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { useSnapshot } from "valtio";
 import Cursor from "./components/Cursor";
-import Loading from "./components/Loading";
 import DisplayPage from "./pages/DisplayPage";
 import HomePage from "./pages/HomePage";
-import IntroPage from "./pages/IntroPage";
+import NotificationPage from "./pages/NotificationPage";
 import UploadPage from "./pages/UploadPage";
 import proxyState from "./proxyStore/proxy";
 
@@ -22,16 +21,12 @@ const router = createBrowserRouter([
 		element: <CommonComponent />,
 		children: [
 			{
-				path: "/intro",
-				element: <IntroPage />,
-			},
-			{
 				path: "/",
-				element: <HomePage />,
+				element: <NotificationPage />,
 			},
 			{
-				path: "*",
-				element: <Loading message={"404"} type={"notify"} />,
+				path: "/home",
+				element: <HomePage />,
 			},
 			{
 				path: "/upload",
