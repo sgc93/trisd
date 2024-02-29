@@ -99,27 +99,33 @@ button {
 }
 
 .model-controller {
-	background: #6d6d6d;
-	border: 1px solid white;
 	border-radius: 1.2rem;
-	padding: 1rem;
+	padding: 1.2rem;
 
 	display: flex;
 	flex-direction: column;
-	gap: 0.5rem;
+	gap: 0.7rem;
 }
 
 .controller {
 	display: flex;
+	align-items: center;
 	gap: 1rem;
 }
 
-.toggle_icon {
+.toggle_icon,
+.bg-icon {
 	font-size: 1.3rem;
 	color: #ffffffa2;
+
+	transition: 0.3s;
 }
 
 .toggle_icon.on {
+	color: #fff;
+}
+
+.bg-controller:hover .bg-icon {
 	color: #fff;
 }
 
@@ -130,7 +136,7 @@ button {
 	left: 4rem;
 	bottom: 16rem;
 
-	z-index: 999;
+	z-index: 996;
 }
 
 /* screenshot displayer modal window */
