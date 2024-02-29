@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSnapshot } from "valtio";
 import { getContrastingColor } from "../config/helpers";
 import proxyState from "../proxyStore/proxy";
@@ -15,12 +16,15 @@ function HomeContent({
 	btnText,
 	isContentDraggable,
 }) {
+	const navigateTo = useNavigate();
 	const snap = useSnapshot(proxyState);
+	const [showDragIndicator, setShowDragIndicator] = useState(false);
+
 	const customStyle = {
 		backgroundColor: snap.homeBtn,
 		color: getContrastingColor(snap.homeBtn),
 	};
-	const [showDragIndicator, setShowDragIndicator] = useState(false);
+
 	return (
 		<motion.div
 			className="home-content"
@@ -41,9 +45,7 @@ function HomeContent({
 					type={"filled"}
 					title={btnText}
 					handleClick={() => {
-						proxyState.inHome = false;
-						proxyState.inDisplayer = true;
-						console.log(proxyState);
+						navigateTo("/upload");
 					}}
 					btnText={btnText}
 					customStyles={customStyle}
