@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { useSnapshot } from "valtio";
+import { useNavigate } from "react-router-dom";
 import DisplayCanvas from "../canvas/displayCanvas/DisplayCanvas";
 import ColorPicker from "../components/ColorPicker";
 import Logo from "../components/Logo";
 import MaterialEditor from "../components/MaterialEditor";
 import ModelController from "../components/ModelController";
-import proxyState from "../proxyStore/proxy";
 
 const initialController = {
 	zoom: false,
@@ -13,7 +12,8 @@ const initialController = {
 	movement: true,
 };
 function DisplayPage({ glbData }) {
-	const snap = useSnapshot(proxyState);
+	const navigateTo = useNavigate();
+
 	const [controller, setController] = useState(initialController);
 	const [screenshotImg, setScreenshotImg] = useState("");
 	const [displayModal, setDisplayModal] = useState(false);
