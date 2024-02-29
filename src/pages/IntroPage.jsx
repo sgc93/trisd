@@ -24,30 +24,32 @@ function IntroPage() {
 	const snap = useSnapshot(proxyState);
 	const bntSnap = useSnapshot(introProxy);
 	return (
-		<section className="intro">
-			{bntSnap.showBtn && <LogoSVG />}
-			<div className="intro-loading">
-				{bntSnap.showBtn ? (
-					<span>TRISD is ready to serve you!</span>
-				) : (
-					<Loading message={"rendering..."} type={"notify-intro"} />
+		snap.inIntro && (
+			<section className="intro">
+				{bntSnap.showBtn && <LogoSVG />}
+				<div className="intro-loading">
+					{bntSnap.showBtn ? (
+						<span>TRISD is ready to serve you!</span>
+					) : (
+						<Loading message={"rendering..."} type={"notify-intro"} />
+					)}
+				</div>
+				{bntSnap.showBtn && (
+					<motion.button
+						variants={btnVariants}
+						initial="initial"
+						animate="animate"
+						className="intro-btn glassmorphism"
+						onClick={() => {
+							proxyState.inIntro = false;
+							proxyState.inHome = true;
+						}}
+					>
+						go to TRISD
+					</motion.button>
 				)}
-			</div>
-			{bntSnap.showBtn && (
-				<motion.button
-					variants={btnVariants}
-					initial="initial"
-					animate="animate"
-					className="intro-btn glassmorphism"
-					onClick={() => {
-						proxyState.inIntro = false;
-						proxyState.inHome = true;
-					}}
-				>
-					go to TRISD
-				</motion.button>
-			)}
-		</section>
+			</section>
+		)
 	);
 }
 
