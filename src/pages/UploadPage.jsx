@@ -1,14 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useSnapshot } from "valtio";
 import CustomBtn from "../components/CustomBtn";
-import Logo from "../components/Logo";
-import proxyState from "../proxyStore/proxy";
 import "./pages.css";
 
-function UploadPage({ setGlbData }) {
-	const navigateTo = useNavigate();
-	const snap = useSnapshot(proxyState);
+function UploadPage({ setGlbData, setCloseUploader }) {
 	const [fileName, setFileName] = useState("");
 	const [isReady, setIsReady] = useState(false);
 	const [status, setStatus] = useState("");
@@ -104,21 +98,15 @@ function UploadPage({ setGlbData }) {
 	function handleDisplaying() {
 		// check file validity
 		if (isReady) {
-			navigateTo("/display");
+			setCloseUploader(true);
 		} else {
 			setIsFalsy(true);
 		}
 	}
 
 	return (
-		<section className="display-page">
-			<Logo
-				handleClick={() => {
-					proxyState.inDisplayer = false;
-					proxyState.inHome = true;
-				}}
-			/>
-			<div className="display-content">
+		<section className="upload-modal-bg">
+			<section className="upload-modal glassmorphism">
 				<div className="display-content_text">
 					<h1>TRISD [3D]</h1>
 					<h4>Upload Your 3D Model and See Though</h4>
@@ -168,7 +156,7 @@ function UploadPage({ setGlbData }) {
 						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 		</section>
 	);
 }
