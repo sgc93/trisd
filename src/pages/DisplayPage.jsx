@@ -15,11 +15,9 @@ const initialController = {
 function DisplayPage() {
 	const navigateTo = useNavigate();
 	const [glbData, setGlbData] = useState("./sgc.glb");
-	const [closeUploader, setCloseUploader] = useState(false);
+	const [displayUploader, setDisplayUploader] = useState(true);
 
 	const [controller, setController] = useState(initialController);
-	const [screenshotImg, setScreenshotImg] = useState("");
-	const [displayModal, setDisplayModal] = useState(false);
 	const [isColorPicker, setIsColorPicker] = useState(false);
 	const [texture, setTexture] = useState();
 
@@ -29,10 +27,10 @@ function DisplayPage() {
 
 	return (
 		<div className="display-canvas_page">
-			{!closeUploader && (
+			{displayUploader && (
 				<UploadPage
 					setGlbData={setGlbData}
-					setCloseUploader={setCloseUploader}
+					setDisplayUploader={setDisplayUploader}
 				/>
 			)}
 			<Logo
@@ -44,26 +42,10 @@ function DisplayPage() {
 			<ModelController
 				controller={controller}
 				setController={setController}
-				setScreenshotImg={setScreenshotImg}
-				setDisplayModal={setDisplayModal}
 				setIsColorPicker={setIsColorPicker}
+				setDisplayUploader={setDisplayUploader}
 			/>
 			{isColorPicker && <ColorPicker purpose={"themeChange"} />}
-			{displayModal && (
-				<div className="screenshot-modal_container">
-					<div className="screenshot-modal">
-						<div>
-							<h4>Your screenshot</h4>
-						</div>
-						<div className="img-container">
-							<img
-								src={screenshotImg ? screenshotImg : "/model.png"}
-								alt="model_screenshot"
-							/>
-						</div>
-					</div>
-				</div>
-			)}
 			<MaterialEditor type={"floor"} changeTMaterial={changeFloorMaterial} />
 			<div className="display-canvas">
 				<DisplayCanvas
