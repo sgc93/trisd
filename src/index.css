@@ -65,148 +65,7 @@ button {
 	font-size: 1.2rem;
 }
 
-/* feature page */
-/* .feature_page,
-.display_page {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	gap: 4rem;
-
-	padding: 4rem;
-	height: 100vh;
-	width: 100vw;
-	background-color: #101010;
-}
-
-.xyz {
-	position: absolute;
-
-	width: fit-content;
-	padding: 0.2rem 0.4rem;
-	border: 1px solid white;
-	border-radius: 1.2rem;
-
-	color: white;
-	font-size: 0.5rem;
-	background-color: #48484870;
-
-	backdrop-filter: blur(4px);
-	transition: all 0.3s;
-}
-
-.btn_container {
-	display: flex;
-	align-items: center;
-}
-
-.drag_indicator {
-	transition: 0.3s;
-}
-
-.feature-header button {
-	align-self: flex-top;
-	max-width: fit-content;
-}
-
-.feature-cards {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-
-	padding: 20px;
-	width: 100%;
-	height: 90%;
-}
-
-.card {
-	position: relative;
-	display: flex;
-	gap: 1rem;
-
-	width: 25%;
-	height: 95%;
-
-	border: 1px solid #ffffff;
-	border-radius: 0.7rem;
-	padding: 1.7rem;
-}
-
-.card:first-child {
-	background-color: #484848;
-}
-
-.card:nth-child(2) {
-	background-color: #82808435;
-}
-
-.card:nth-child(3) {
-	background-color: #4848486b;
-}
-.card_part1 {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-
-	width: 70%;
-}
-
-.card .logo {
-	width: 3.3rem;
-}
-
-.feature {
-	display: flex;
-	flex-direction: column;
-	gap: 1.4rem;
-}
-
-.feature-title {
-	font-size: 2rem;
-	font-weight: 700;
-
-	color: #fff;
-}
-
-.feature-description {
-	font-size: 1.3rem;
-	font-weight: 500;
-	color: #afaeae;
-}
-
-.feature-btn {
-	position: absolute;
-	bottom: 2rem;
-	left: -2rem;
-	width: 15rem;
-	display: flex;
-}
-
-.feature-btn button {
-	font-size: 1.3rem;
-	font-weight: 500;
-	box-shadow: 0.5rem 0.2rem 0.6rem #afaeae7a;
-
-	transition: 0.6s;
-}
-
-.feature-btn button:hover {
-	box-shadow: 0.5rem 0.2rem 1rem #afaeae7a;
-	transform: translateY(-4px);
-}
-
-.card_part2 {
-	position: absolute;
-	right: -9rem;
-	width: 20rem;
-}
-
-.card_part2 img {
-	width: 100%;
-} */
-
-/* model displayer page */
-/* displayer canvas page */
+/* uploading modal window */
 
 .display-canvas_page {
 	position: relative;
@@ -223,7 +82,7 @@ button {
 
 .display-logo {
 	position: absolute;
-	z-index: 998;
+	z-index: 996;
 
 	margin: 4rem;
 }
@@ -236,7 +95,7 @@ button {
 	display: flex;
 	align-items: center;
 
-	z-index: 998;
+	z-index: 996;
 }
 
 .model-controller {
