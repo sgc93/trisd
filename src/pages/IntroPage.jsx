@@ -42,7 +42,6 @@ function IntroPage() {
 						className="intro-btn glassmorphism"
 						onClick={() => {
 							proxyState.inIntro = false;
-							proxyState.inHome = true;
 						}}
 					>
 						go to TRISD
