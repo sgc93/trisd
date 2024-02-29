@@ -5,14 +5,17 @@ import ColorPicker from "../components/ColorPicker";
 import Logo from "../components/Logo";
 import MaterialEditor from "../components/MaterialEditor";
 import ModelController from "../components/ModelController";
+import UploadPage from "./UploadPage";
 
 const initialController = {
 	zoom: false,
 	rotate: false,
 	movement: true,
 };
-function DisplayPage({ glbData }) {
+function DisplayPage() {
 	const navigateTo = useNavigate();
+	const [glbData, setGlbData] = useState("./sgc.glb");
+	const [closeUploader, setCloseUploader] = useState(false);
 
 	const [controller, setController] = useState(initialController);
 	const [screenshotImg, setScreenshotImg] = useState("");
@@ -20,14 +23,18 @@ function DisplayPage({ glbData }) {
 	const [isColorPicker, setIsColorPicker] = useState(false);
 	const [texture, setTexture] = useState();
 
-	if (!glbData) glbData = "./sgc.glb";
-
 	function changeFloorMaterial(textureId) {
 		setTexture(textureId);
 	}
 
 	return (
 		<div className="display-canvas_page">
+			{!closeUploader && (
+				<UploadPage
+					setGlbData={setGlbData}
+					setCloseUploader={setCloseUploader}
+				/>
+			)}
 			<Logo
 				newClass={"display-logo"}
 				handleClick={() => {
