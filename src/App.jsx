@@ -6,7 +6,6 @@ import DisplayPage from "./pages/DisplayPage";
 import HomePage from "./pages/HomePage";
 import IntroPage from "./pages/IntroPage";
 import NotificationPage from "./pages/NotificationPage";
-import UploadPage from "./pages/UploadPage";
 import proxyState from "./proxyStore/proxy";
 
 function CommonComponent() {
@@ -35,10 +34,6 @@ const router = createBrowserRouter([
 			{
 				path: "/",
 				element: <Home />,
-			},
-			{
-				path: "/upload",
-				element: <UploadPage />,
 			},
 			{
 				path: "/display",
