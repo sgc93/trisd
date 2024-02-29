@@ -31,8 +31,7 @@ function DisplayPage({ glbData }) {
 			<Logo
 				newClass={"display-logo"}
 				handleClick={() => {
-					proxyState.inCanvas = false;
-					proxyState.inHome = true;
+					navigateTo(-2);
 				}}
 			/>
 			<ModelController
