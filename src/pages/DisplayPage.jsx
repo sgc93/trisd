@@ -14,7 +14,7 @@ const initialController = {
 };
 function DisplayPage() {
 	const navigateTo = useNavigate();
-	const [glbData, setGlbData] = useState("./sgc.glb");
+	const [glbData, setGlbData] = useState("");
 	const [displayUploader, setDisplayUploader] = useState(true);
 
 	const [controller, setController] = useState(initialController);
@@ -25,12 +25,16 @@ function DisplayPage() {
 		setTexture(textureId);
 	}
 
+	function displayModel(glb) {
+		setGlbData((glbData) => glb);
+	}
+
 	return (
 		<div className="display-canvas_page">
 			{displayUploader && (
 				<UploadPage
-					setGlbData={setGlbData}
 					setDisplayUploader={setDisplayUploader}
+					displayModel={displayModel}
 				/>
 			)}
 			<Logo
@@ -48,11 +52,13 @@ function DisplayPage() {
 			{isColorPicker && <ColorPicker purpose={"themeChange"} />}
 			<MaterialEditor type={"floor"} changeTMaterial={changeFloorMaterial} />
 			<div className="display-canvas">
-				<DisplayCanvas
-					controller={controller}
-					glbData={glbData}
-					texture={texture}
-				/>
+				{glbData && (
+					<DisplayCanvas
+						controller={controller}
+						glbData={glbData}
+						texture={texture}
+					/>
+				)}
 			</div>
 		</div>
 	);
