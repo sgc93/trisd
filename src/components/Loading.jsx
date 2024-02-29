@@ -6,7 +6,7 @@ function Loading({ message, type }) {
 
 	if (isNotify || isNotifyIntro) {
 		return (
-			<div className={`${isNotify ? "only-spinner" : "notify-intro"}`}>
+			<div className={`${isNotify ? "notify-spinner" : "notify-intro"}`}>
 				<div className="only-spinner"></div>
 				<span>{message}</span>
 			</div>
