@@ -48,6 +48,7 @@
 	left: 0;
 
 	margin: 3rem;
+	z-index: 995;
 }
 
 .logo img {
@@ -334,6 +335,8 @@
 	justify-content: center;
 	gap: 1rem;
 	color: white;
+
+	z-index: 23;
 }
 
 .texture {
