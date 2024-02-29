@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSnapshot } from "valtio";
 import CustomBtn from "../components/CustomBtn";
 import Logo from "../components/Logo";
@@ -6,6 +7,7 @@ import proxyState from "../proxyStore/proxy";
 import "./pages.css";
 
 function UploadPage({ setGlbData }) {
+	const navigateTo = useNavigate();
 	const snap = useSnapshot(proxyState);
 	const [fileName, setFileName] = useState("");
 	const [isReady, setIsReady] = useState(false);
@@ -102,8 +104,7 @@ function UploadPage({ setGlbData }) {
 	function handleDisplaying() {
 		// check file validity
 		if (isReady) {
-			proxyState.inDisplayer = false;
-			proxyState.inCanvas = true;
+			navigateTo("/display");
 		} else {
 			setIsFalsy(true);
 		}
