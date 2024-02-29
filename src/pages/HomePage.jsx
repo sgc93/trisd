@@ -94,52 +94,44 @@ function HomePage() {
 	}
 
 	return (
-		<>
-			{snap.inHome && !snap.inDisplayer && (
-				<section className="home">
-					<div className="home-model">
-						<HomeCanvas newTexture={texture} />
-					</div>
-					<MaterialEditor changeMaterial={changeMaterial} type={"object"} />
-					<Logo
-						url={logoUrl}
-						width={logoWidth}
-						isLogoDraggable={isLogoDraggable}
-					/>
-					<HomeContent
-						largeText={largeText}
-						smallText={smallText}
-						largeSize={largeSize}
-						smallSize={smallSize}
-						btnText={btnText}
-						isContentDraggable={isContentDraggable}
-					/>
-					<EditPanel
-						newLogo={newLogo}
-						logoWidth={logoWidth}
-						handleLogoUploading={handleLogoUploading}
-						handleLogoReset={handleLogoReset}
-						updateLogoWidth={updateLogoWidth}
-						largeSize={largeSize}
-						smallSize={smallSize}
-						largeText={largeText}
-						smallText={smallText}
-						updateLargerText={updateLargerText}
-						updateSmallerText={updateSmallerText}
-						updateLargeSize={updateLargeSize}
-						updateSmallSize={updateSmallSize}
-						resetTextChange={resetTextChange}
-						btnText={btnText}
-						updateBtnText={updateBtnText}
-						resetBtnChange={resetBtnChange}
-						isLogoDraggable={isLogoDraggable}
-						handleLogoDraggable={handleLogoDraggable}
-						isContentDraggable={isContentDraggable}
-						handleContentDraggable={handleContentDraggable}
-					/>
-				</section>
-			)}
-		</>
+		<section className="home">
+			<div className="home-model">
+				<HomeCanvas newTexture={texture} />
+			</div>
+			<MaterialEditor changeMaterial={changeMaterial} type={"object"} />
+			<Logo url={logoUrl} width={logoWidth} isLogoDraggable={isLogoDraggable} />
+			<HomeContent
+				largeText={largeText}
+				smallText={smallText}
+				largeSize={largeSize}
+				smallSize={smallSize}
+				btnText={btnText}
+				isContentDraggable={isContentDraggable}
+			/>
+			<EditPanel
+				newLogo={newLogo}
+				logoWidth={logoWidth}
+				handleLogoUploading={handleLogoUploading}
+				handleLogoReset={handleLogoReset}
+				updateLogoWidth={updateLogoWidth}
+				largeSize={largeSize}
+				smallSize={smallSize}
+				largeText={largeText}
+				smallText={smallText}
+				updateLargerText={updateLargerText}
+				updateSmallerText={updateSmallerText}
+				updateLargeSize={updateLargeSize}
+				updateSmallSize={updateSmallSize}
+				resetTextChange={resetTextChange}
+				btnText={btnText}
+				updateBtnText={updateBtnText}
+				resetBtnChange={resetBtnChange}
+				isLogoDraggable={isLogoDraggable}
+				handleLogoDraggable={handleLogoDraggable}
+				isContentDraggable={isContentDraggable}
+				handleContentDraggable={handleContentDraggable}
+			/>
+		</section>
 	);
 }
 
