@@ -19,9 +19,10 @@ function CommonComponent() {
 }
 
 function Home() {
+	const snap = useSnapshot(proxyState);
 	return (
 		<>
-			<IntroPage />
+			{snap.inIntro && <IntroPage />}
 			<HomePage />
 		</>
 	);
@@ -49,10 +50,6 @@ const router = createBrowserRouter([
 
 function App() {
 	const [inUpdateState] = useState(false);
-	const snap = useSnapshot(proxyState);
-	const [glbData, setGlbData] = useState("./jebena.glb");
-	const [cursorClass, setCursorClass] = useState("def_cursor");
-
 	return (
 		<main className="app transition-all ease-in relative">
 			{inUpdateState ? (
