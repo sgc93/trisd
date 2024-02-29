@@ -308,6 +308,7 @@
 /*CustomBtn */
 
 .custom-btn {
+	font-weight: 200;
 	padding: 0.3rem 0.7rem;
 	border-radius: 0.6rem;
 	text-transform: capitalize;
@@ -315,10 +316,20 @@
 
 .custom-btn.filled {
 	background: var(--color-bg-btn);
+	transition: all 0.4s;
+}
+
+.custom-btn.filled:hover {
+	background-color: var(--color-border2);
 }
 
 .custom-btn.outlined {
-	border: 1px solid var(--color-bg-btn);
+	border: 1px solid var(--color-border2);
+
+	transition: all 0.4s;
+}
+.custom-btn.outlined:hover {
+	border-color: var(--color-text-secondary);
 }
 
 /* MaterialEditor */
