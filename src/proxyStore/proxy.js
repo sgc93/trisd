@@ -6,12 +6,6 @@ export const introProxy = proxy({
 
 const proxyState = proxy({
 	inIntro: true,
-	inHome: true,
-	inDisplayer: false,
-	inCustomizer: false,
-	inFeaturePage: false,
-	inMockup: false,
-	inCanvas: false,
 
 	bg: "#101010",
 	homeBtn: "#484848",
