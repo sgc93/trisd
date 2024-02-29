@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import CustomBtn from "../components/CustomBtn";
 import "./pages.css";
 
-function UploadPage({ setGlbData, setCloseUploader }) {
+function UploadPage({ setGlbData, setDisplayUploader }) {
 	const [fileName, setFileName] = useState("");
 	const [isReady, setIsReady] = useState(false);
 	const [status, setStatus] = useState("");
@@ -98,7 +98,7 @@ function UploadPage({ setGlbData, setCloseUploader }) {
 	function handleDisplaying() {
 		// check file validity
 		if (isReady) {
-			setCloseUploader(true);
+			setDisplayUploader(false);
 		} else {
 			setIsFalsy(true);
 		}
@@ -147,11 +147,15 @@ function UploadPage({ setGlbData, setCloseUploader }) {
 								: "No file is selected"}
 						</div>
 						<div className="input-uploader_btns">
-							<CustomBtn type={"outline"} title={"Change File"} />
 							<CustomBtn
 								type={"filled"}
 								title={"Display"}
 								handleClick={handleDisplaying}
+							/>
+							<CustomBtn
+								type={"outlined"}
+								title={"play with Mr. Tris D."}
+								handleClick={() => setDisplayUploader(false)}
 							/>
 						</div>
 					</div>
