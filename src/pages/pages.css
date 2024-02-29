@@ -128,25 +128,35 @@
 
 /* display page */
 
-.display-page {
-	position: relative;
+.upload-modal-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
 
-	padding: 3rem;
-
-	height: 100vh;
 	width: 100vw;
-	background-color: var(--color-bg-primary);
+	height: 100vh;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	backdrop-filter: blur(18px);
+	z-index: 998;
 }
 
-.display-content {
+.upload-modal {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 5rem;
+	justify-content: center;
+	gap: 3rem;
 
-	margin-top: 5rem;
+	border-radius: 1.2rem;
 
-	color: var(--color-text-primary);
+	height: 70vh;
+	width: 70vw;
+
+	padding: 1rem;
 }
 
 .display-content_text {
