@@ -45,7 +45,7 @@ function HomeContent({
 					type={"filled"}
 					title={btnText}
 					handleClick={() => {
-						navigateTo("/upload");
+						navigateTo("/display");
 					}}
 					btnText={btnText}
 					customStyles={customStyle}
