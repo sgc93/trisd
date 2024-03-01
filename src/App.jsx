@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { useSnapshot } from "valtio";
 import Cursor from "./components/Cursor";
+import Error from "./components/Error";
 import DisplayPage from "./pages/DisplayPage";
 import HomePage from "./pages/HomePage";
 import IntroPage from "./pages/IntroPage";
@@ -30,14 +31,17 @@ function Home() {
 const router = createBrowserRouter([
 	{
 		element: <CommonComponent />,
+		errorElement: <Error />,
 		children: [
 			{
 				path: "/",
 				element: <Home />,
+				errorElement: <Error />,
 			},
 			{
 				path: "/display",
 				element: <DisplayPage />,
+				errorElement: <Error />,
 			},
 		],
 	},
