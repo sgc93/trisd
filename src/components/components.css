@@ -324,6 +324,7 @@
 }
 
 .custom-btn.outlined {
+	color: var(--color-text-secondary);
 	border: 1px solid var(--color-border2);
 	font-weight: 200;
 
@@ -563,18 +564,49 @@
 	transform: translate(-50%, -50%);
 
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	gap: 2rem;
 
-	width: 50vw;
-	height: 10vh;
+	width: 60%;
 
-	padding: 1rem 2rem;
+	padding: 2rem;
 	border-radius: 1.2rem;
 	z-index: 996;
+
+	transition: all 0.2s;
 }
 
-.error-message span {
+.error-message div:first-child {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.error-message div:first-child span {
 	font-weight: 200;
+	color: var(--color-text-primary);
+	opacity: 0.6;
+	font-size: 1.5rem;
+}
+
+.error-message .error {
+	display: none;
+	flex-direction: column-reverse;
+	align-items: center;
+	gap: 1rem;
+	transition: all 0.3s;
+}
+
+.error.showError {
+	display: flex;
+}
+
+.error-message .error span:first-child {
+	color: var(--color-text-secondary2);
+}
+
+.error-message button:last-child {
+	align-self: flex-end;
 }
