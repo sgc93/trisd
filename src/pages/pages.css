@@ -290,3 +290,30 @@
 
 	width: 100%;
 }
+
+/* PageNotFound */
+
+.page-not-found {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	width: 100vw;
+	height: 100vh;
+
+	background-color: var(--color-bg-primary);
+}
+
+.four-o-four {
+	color: var(--color-text-secondary);
+	font-size: 6rem;
+	letter-spacing: 4rem;
+}
+
+.not-found-text {
+	align-self: center;
+	letter-spacing: 0.65rem;
+	color: var(--color-text-secondary2);
+	text-transform: capitalize;
+}
