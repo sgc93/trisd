@@ -325,9 +325,11 @@
 
 .custom-btn.outlined {
 	border: 1px solid var(--color-border2);
+	font-weight: 200;
 
 	transition: all 0.4s;
 }
+
 .custom-btn.outlined:hover {
 	border-color: var(--color-text-secondary);
 }
@@ -539,4 +541,40 @@
 
 .logo-svg svg {
 	width: 20rem;
+}
+
+/* Error component */
+.error-page {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 100vw;
+	height: 100vh;
+
+	background-color: var(--color-bg-primary);
+	color: var(--color-text-primary);
+}
+
+.error-message {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+
+	width: 50vw;
+	height: 10vh;
+
+	padding: 1rem 2rem;
+	border-radius: 1.2rem;
+	z-index: 996;
+}
+
+.error-message span {
+	font-weight: 200;
 }
