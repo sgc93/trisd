@@ -3,6 +3,7 @@ import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { useSnapshot } from "valtio";
 import Cursor from "./components/Cursor";
 import Error from "./components/Error";
+import PageNotFound from "./pages/404";
 import DisplayPage from "./pages/DisplayPage";
 import HomePage from "./pages/HomePage";
 import IntroPage from "./pages/IntroPage";
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
 			{
 				path: "/display",
 				element: <DisplayPage />,
+				errorElement: <Error />,
+			},
+			{
+				path: "*",
+				element: <PageNotFound />,
 				errorElement: <Error />,
 			},
 		],
