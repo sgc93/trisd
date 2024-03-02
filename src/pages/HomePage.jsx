@@ -7,11 +7,12 @@ import "./pages.css";
 
 import { useSnapshot } from "valtio";
 import HomeCanvas from "../canvas/homeCanvas/HomeCanvas";
+import HomeModelImg from "../components/HomeModelImg";
 import MaterialEditor from "../components/MaterialEditor";
-import proxyState from "../proxyStore/proxy";
+import proxyState, { introProxy } from "../proxyStore/proxy";
 
 function HomePage() {
-	const snap = useSnapshot(proxyState);
+	const introSnap = useSnapshot(introProxy);
 	const [newLogo, setNewLogo] = useState("");
 	const [logoUrl, setLogoUrl] = useState("");
 	const [logoWidth, setLogoWidth] = useState(5);
@@ -96,7 +97,8 @@ function HomePage() {
 	return (
 		<section className="home">
 			<div className="home-model">
-				<HomeCanvas newTexture={texture} />
+				{introSnap.is3DHome && <HomeCanvas newTexture={texture} />}
+				{introSnap.is2DHome && <HomeModelImg newTexture={texture} />}
 			</div>
 			<MaterialEditor changeMaterial={changeMaterial} type={"object"} />
 			<Logo url={logoUrl} width={logoWidth} isLogoDraggable={isLogoDraggable} />
