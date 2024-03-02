@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useSnapshot } from "valtio";
 import Loading from "../components/Loading";
 import LogoSVG from "../components/LogoSVG";
+import Notification from "../components/Notification";
 import proxyState, { introProxy } from "../proxyStore/proxy";
 import "./pages.css";
 
@@ -25,29 +26,46 @@ function IntroPage() {
 	const bntSnap = useSnapshot(introProxy);
 	return (
 		snap.inIntro && (
-			<section className="intro">
-				{bntSnap.showBtn && <LogoSVG />}
-				<div className="intro-loading">
-					{bntSnap.showBtn ? (
-						<span>TRISD is ready to serve you!</span>
-					) : (
-						<Loading message={"rendering..."} type={"notify-intro"} />
+			<>
+				<Notification
+					message={
+						"This rendering, of homepage's 3D model, will take a little long time - around 1.5 minutes, do you want to continue with its 2D version?"
+					}
+				/>
+				<section
+					className="intro"
+					style={
+						bntSnap.isNotifying
+							? {
+									filter: "blur(10px)",
+									border: "5px solid var(--color-text-secondary2)",
+							  }
+							: {}
+					}
+				>
+					{bntSnap.showBtn && <LogoSVG />}
+					<div className="intro-loading">
+						{bntSnap.showBtn ? (
+							<span>TRISD is ready to serve you!</span>
+						) : (
+							<Loading message={"rendering..."} type={"notify-intro"} />
+						)}
+					</div>
+					{bntSnap.showBtn && (
+						<motion.button
+							variants={btnVariants}
+							initial="initial"
+							animate="animate"
+							className="intro-btn glassmorphism"
+							onClick={() => {
+								proxyState.inIntro = false;
+							}}
+						>
+							go to TRISD
+						</motion.button>
 					)}
-				</div>
-				{bntSnap.showBtn && (
-					<motion.button
-						variants={btnVariants}
-						initial="initial"
-						animate="animate"
-						className="intro-btn glassmorphism"
-						onClick={() => {
-							proxyState.inIntro = false;
-						}}
-					>
-						go to TRISD
-					</motion.button>
-				)}
-			</section>
+				</section>
+			</>
 		)
 	);
 }
