@@ -3,6 +3,8 @@ import { proxy } from "valtio";
 export const introProxy = proxy({
 	showBtn: false,
 	isNotifying: false,
+	is3DHome: true,
+	is2DHome: false,
 });
 
 const proxyState = proxy({
