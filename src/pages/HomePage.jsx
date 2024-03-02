@@ -98,7 +98,7 @@ function HomePage() {
 		<section className="home">
 			<div className="home-model">
 				{introSnap.is3DHome && <HomeCanvas newTexture={texture} />}
-				{introSnap.is2DHome && <HomeModelImg newTexture={texture} />}
+				{introSnap.is2DHome && <HomeModelImg texture={texture} />}
 			</div>
 			<MaterialEditor changeMaterial={changeMaterial} type={"object"} />
 			<Logo url={logoUrl} width={logoWidth} isLogoDraggable={isLogoDraggable} />
