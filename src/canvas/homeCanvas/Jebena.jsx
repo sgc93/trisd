@@ -29,7 +29,7 @@ export function Model({ newTexture, props }) {
 	const { nodes, materials } = useGLTF("/jebena.glb");
 	if (nodes) {
 		introProxy.showBtn = true;
-		console.log("rendering finished ...");
+		introProxy.isNotifying = false;
 	}
 	return (
 		<group {...props}>
