@@ -40,7 +40,7 @@ function DisplayPage() {
 			<Logo
 				newClass={"display-logo"}
 				handleClick={() => {
-					navigateTo(-1);
+					navigateTo("/");
 				}}
 			/>
 			<ModelController
