@@ -13,7 +13,7 @@ function DisplayCanvas({ glbData, controller, texture }) {
 
 	return (
 		<Suspense fallback={<Loading message={"rendering ..."} />}>
-			<Canvas ref={screenshot}>
+			<Canvas ref={screenshot} style={{ touchAction: "none" }}>
 				<color attach={"background"} args={[snap.bg]} />
 				<fog attach={"fog"} args={[snap.bg, 5, 10]} />
 				<ambientLight intensity={1.5} />

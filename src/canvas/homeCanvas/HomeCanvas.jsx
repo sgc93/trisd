@@ -6,7 +6,7 @@ import HomeModel from "./HomeModel";
 function HomeCanvas({ newTexture }) {
 	return (
 		<Suspense fallback={<Loading type={"notify"} />}>
-			<Canvas>
+			<Canvas style={{ touchAction: "none" }}>
 				<color attach={"background"} args={["#101010"]} />
 				<fog attach={"fog"} args={["#101010", 5, 10]} />
 
